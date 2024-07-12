@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import "Assessmint-Swift.h"
 
 #import <React/RCTBundleURLProvider.h>
 
@@ -13,8 +14,14 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
+  
+  // Loading Bridge
+  [super application:application didFinishLaunchingWithOptions:launchOptions];
+  
+  // Splash Screen
+  [SplashScreenModule hold];
 
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+  return YES;
 }
 // ------------------------------------------------------------------------------------------------
 

@@ -7,9 +7,12 @@ import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 
+import com.assessmint.mobile.SplashScreen.SplashScreenModule
+
 class MainActivity : ReactActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        SplashScreenModule.init(this)
         super.onCreate(savedInstanceState)
     }
     // -----------------------------------------

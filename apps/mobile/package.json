@@ -23,6 +23,7 @@
     "@react-native/typescript-config": "0.74.85",
     "@types/react": "^18.2.6",
     "@types/react-test-renderer": "^18.0.0",
+    "babel-plugin-module-resolver": "^5.0.2",
     "react-test-renderer": "18.2.0"
   },
   "engines": {
