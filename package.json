@@ -1,0 +1,19 @@
+{
+  "name": "assessmint",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "mobile": "yarn workspace mobile",
+    "web": "yarn workspace web"
+  },
+  "devDependencies": {
+    "babel-jest": "^29.6.3",
+    "eslint": "^8.19.0",
+    "jest": "^29.6.3",
+    "typescript": "5.0.4"
+  },
+  "packageManager": "yarn@3.6.4"
+}
