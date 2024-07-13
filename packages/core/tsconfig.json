@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "types": ["jest"],
+    "lib": ["esnext"],
+    "allowJs": true,
+    "outDir": "dist",
+    "declaration": true,
+    "declarationMap": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": false,
+    "isolatedModules": true,
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@config": ["config"],
+      "@enums": ["enums"],
+      "@models": ["models"],
+      "@validators": ["validators"]
+    }
+  },
+  "include": ["index.ts", "**/*.ts"],
+  "exclude": ["node_modules", "dist"],
+  "tsc-alias": {
+    "verbose": false,
+    "resolveFullPaths": true
+  }
+}

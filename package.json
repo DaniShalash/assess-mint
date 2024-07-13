@@ -7,10 +7,10 @@
   ],
   "scripts": {
     "mobile": "yarn workspace mobile",
-    "web": "yarn workspace web"
+    "web": "yarn workspace web",
+    "core": "yarn workspace @assessmint/core"
   },
   "devDependencies": {
-    "eslint": "^8.19.0",
     "ts-node": "^10.9.2",
     "typescript": "5.0.4"
   },
