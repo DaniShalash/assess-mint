@@ -1,8 +1,10 @@
-import { UserCountry, UserNameComposition, Validity } from '@enums';
+import { UserNameRule } from '@models/user-name-rule.model';
 
-import { UserNameRule } from '@models';
+import { UserCountry } from '@enums/user-country.enum';
+import { UserNameComposition } from '@enums/user-name-composition.enum';
+import { Validity } from '@enums/validity.enum';
 
-import { userNameRuleCountryMap } from '@config';
+import { userNameRuleCountryMap } from '@config/user-name-rule-country.config';
 
 /**
  * 

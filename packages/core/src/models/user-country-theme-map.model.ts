@@ -1,6 +1,7 @@
 import { Theme } from './theme.model';
 
-import { UserCountry, ThemeType } from '@enums';
+import { ThemeType } from '@enums/theme.enum';
+import { UserCountry } from '@enums/user-country.enum';
 
 export type UserCountryThemeMap = {
   [k in UserCountry]: {

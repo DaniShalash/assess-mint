@@ -5,6 +5,9 @@ module.exports = {
     'node_modules',
     '../../node_modules'
   ],
+  modulePathIgnorePatterns: [
+    'dist'
+  ],
   transform: {
     '\\.[jt]sx?$': ['ts-jest']
   },

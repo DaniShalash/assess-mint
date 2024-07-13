@@ -1,6 +1,6 @@
-import { UserNameRule } from '@models';
+import { UserNameRule } from '@models/user-name-rule.model';
 
-import { UserNameComposition } from '@enums';
+import { UserNameComposition } from '@enums/user-name-composition.enum';
 
 // ----------------------
 

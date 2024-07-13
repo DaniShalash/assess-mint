@@ -1,33 +1,33 @@
 {
   "compilerOptions": {
-    "target": "esnext",
     "module": "esnext",
-    "types": ["jest"],
+    "target": "esnext",
     "lib": ["esnext"],
+    "types": ["jest"],
     "allowJs": true,
     "outDir": "dist",
     "declaration": true,
     "declarationMap": true,
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": false,
+    "alwaysStrict": true,
+    "emitDeclarationOnly": true,
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": false,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
     "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": "./src",
     "paths": {
-      "@config": ["config"],
-      "@enums": ["enums"],
-      "@models": ["models"],
-      "@validators": ["validators"]
+      "@config/*": ["config/*"],
+      "@enums/*": ["enums/*"],
+      "@models/*": ["models/*"],
+      "@validators/*": ["validators/*"]
     }
   },
-  "include": ["index.ts", "**/*.ts"],
-  "exclude": ["node_modules", "dist"],
-  "tsc-alias": {
-    "verbose": false,
-    "resolveFullPaths": true
-  }
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "**/*.d.ts"]
 }

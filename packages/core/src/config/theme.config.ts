@@ -1,9 +1,9 @@
-import { Theme } from '@models';
+import { Theme } from '@models/theme.model';
 
-import { ThemeType } from '@enums';
+import { ThemeType } from '@enums/theme.enum';
 
 export const uaeLightTheme: Theme = Object.freeze({
-  type: ThemeType.Light,
+  type: ThemeType.LIGHT,
   primary: '#FF0000',
   secondary: '#007A3D',
   success: '#51B517',
@@ -17,7 +17,7 @@ export const uaeLightTheme: Theme = Object.freeze({
 // ----------------------
 
 export const uaeDarkTheme: Theme = Object.freeze({
-  type: ThemeType.Dark,
+  type: ThemeType.DARK,
   primary: '#FF0000',
   secondary: '#007A3D',
   success: '#51B517',
@@ -31,9 +31,9 @@ export const uaeDarkTheme: Theme = Object.freeze({
 // ----------------------
 
 export const indiaLightTheme: Theme = Object.freeze({
-  type: ThemeType.Light,
+  type: ThemeType.LIGHT,
   primary: '#FF9933',
-  secondary: '##138808',
+  secondary: '#138808',
   success: '#51B517',
   warning: '#EDCA3B',
   error: '#E03F1F',
@@ -45,9 +45,9 @@ export const indiaLightTheme: Theme = Object.freeze({
 // ----------------------
 
 export const indiaDarkTheme: Theme = Object.freeze({
-  type: ThemeType.Dark,
+  type: ThemeType.DARK,
   primary: '#FF9933',
-  secondary: '##138808',
+  secondary: '#138808',
   success: '#51B517',
   warning: '#EDCA3B',
   error: '#E03F1F',
@@ -59,7 +59,7 @@ export const indiaDarkTheme: Theme = Object.freeze({
 // ----------------------
 
 export const pakistanLightTheme: Theme = Object.freeze({
-  type: ThemeType.Light,
+  type: ThemeType.LIGHT,
   primary: '#006600',
   secondary: '#006600',
   success: '#51B517',
@@ -73,7 +73,7 @@ export const pakistanLightTheme: Theme = Object.freeze({
 // ----------------------
 
 export const pakistanDarkTheme: Theme = Object.freeze({
-  type: ThemeType.Dark,
+  type: ThemeType.DARK,
   primary: '#006600',
   secondary: '#006600',
   success: '#51B517',
@@ -87,7 +87,7 @@ export const pakistanDarkTheme: Theme = Object.freeze({
 // ----------------------
 
 export const franceLightTheme: Theme = Object.freeze({
-  type: ThemeType.Light,
+  type: ThemeType.LIGHT,
   primary: '#0055A4',
   secondary: '#EF4135',
   success: '#51B517',
@@ -101,7 +101,7 @@ export const franceLightTheme: Theme = Object.freeze({
 // ----------------------
 
 export const franceDarkTheme: Theme = Object.freeze({
-  type: ThemeType.Dark,
+  type: ThemeType.DARK,
   primary: '#0055A4',
   secondary: '#EF4135',
   success: '#51B517',

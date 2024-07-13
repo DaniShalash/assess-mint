@@ -1,4 +1,4 @@
-import { UserNameComposition } from '@enums';
+import { UserNameComposition } from '@enums/user-name-composition.enum';
 
 export type UserNameRule = {
   composition: UserNameComposition;

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
-import {
-  RootStack,
-  NavigationStackID,
-  ScreenRoute
-} from '@navigation';
+import { Theme, ThemeType } from '@assessmint/core';
+
+import { RootStack, NavigationStackID, ScreenRoute } from '@navigation';
 
 import { SplashScreenService } from '@services';
+
+import { useTheme } from '@providers';
 
 import {
   LoginScreen,
@@ -23,13 +23,26 @@ export const AppNavigation = (): React.JSX.Element => {
   const isAuthenticated: boolean = false;
   // ---------------------
 
+  const theme: Theme = useTheme();
+  // ---------------------
+
   useEffect(() => {
     SplashScreenService.hide();
   }, []);
   // ---------------------
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={{
+      dark: theme.type === ThemeType.DARK,
+      colors: {
+        primary: theme.primary,
+        background: theme.background,
+        card: theme.background,
+        text: theme.text,
+        border: theme.background,
+        notification: theme.secondary
+      }
+    }}>
 
       <RootStack.Navigator id={NavigationStackID.ROOT}>
         {!isAuthenticated ? (

@@ -15,12 +15,10 @@ config.watchFolders = [workspaceRoot];
 // Watch the local app folder, and the shared packages (uncomment if you have shared packages
 // that are being used between the mono repo's apps)
 
-// TODO: change 'packages/api', 'packages/components'
-// to the real shared packages name.
-// const monorepoPackages = {
-//   '@assessmint/api': path.resolve(workspaceRoot, 'packages/api')
-// };
-// config.watchFolders = [projectRoot, ...Object.values(monorepoPackages)];
+const monorepoPackages = {
+  '@assessmint/core': path.resolve(workspaceRoot, 'packages/core')
+};
+config.watchFolders = [projectRoot, ...Object.values(monorepoPackages)];
 
 // Let Metro know where to resolve packages and in what order
 config.resolver.nodeModulesPaths = [

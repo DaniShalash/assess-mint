@@ -1,4 +1,4 @@
-import { ThemeType } from '@enums';
+import { ThemeType } from '@enums/theme.enum';
 
 export type Theme = {
   type: ThemeType;

@@ -1,14 +1,19 @@
-import { UserNameRuleCountryMap } from '@models';
+import { UserNameRuleCountryMap } from '@models/user-name-rule-country-map.model';
 
-import { UserCountry } from '@enums';
+import { UserCountry } from '@enums/user-country.enum';
 
-import * as userNameRules from './user-name-rules.config';
+import {
+  uaeUserNameRule,
+  indiaUserNameRule,
+  pakistanUserNameRule,
+  franceUserNameRule
+} from './user-name-rules.config';
 
 export const userNameRuleCountryMap: UserNameRuleCountryMap = Object.freeze({
-  [UserCountry.UAE]: userNameRules.uaeUserNameRule,
-  [UserCountry.INDIA]: userNameRules.indiaUserNameRule,
-  [UserCountry.PAKISTAN]: userNameRules.pakistanUserNameRule,
-  [UserCountry.FRANCE]: userNameRules.franceUserNameRule
+  [UserCountry.UAE]: uaeUserNameRule,
+  [UserCountry.INDIA]: indiaUserNameRule,
+  [UserCountry.PAKISTAN]: pakistanUserNameRule,
+  [UserCountry.FRANCE]: franceUserNameRule
 });
 // ----------------------
 // ------------------------------------------------------------------------------------------

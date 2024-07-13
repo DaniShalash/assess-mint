@@ -1,25 +1,35 @@
-import { UserCountryThemeMap } from '@models';
+import { UserCountryThemeMap } from '@models/user-country-theme-map.model';
 
-import { UserCountry, ThemeType } from '@enums';
+import { ThemeType } from '@enums/theme.enum';
+import { UserCountry } from '@enums/user-country.enum';
 
-import * as themes from './theme.config';
+import {
+  uaeLightTheme,
+  uaeDarkTheme,
+  indiaLightTheme,
+  indiaDarkTheme,
+  pakistanLightTheme,
+  pakistanDarkTheme,
+  franceLightTheme,
+  franceDarkTheme
+} from '@config/theme.config';
 
 export const userCountryThemeMap: UserCountryThemeMap = Object.freeze({
   [UserCountry.UAE]: {
-    [ThemeType.Light]: themes.uaeLightTheme,
-    [ThemeType.Dark]: themes.uaeDarkTheme
+    [ThemeType.LIGHT]: uaeLightTheme,
+    [ThemeType.DARK]: uaeDarkTheme
   },
   [UserCountry.INDIA]: {
-    [ThemeType.Light]: themes.indiaLightTheme,
-    [ThemeType.Dark]: themes.indiaDarkTheme
+    [ThemeType.LIGHT]: indiaLightTheme,
+    [ThemeType.DARK]: indiaDarkTheme
   },
   [UserCountry.PAKISTAN]: {
-    [ThemeType.Light]: themes.pakistanLightTheme,
-    [ThemeType.Dark]: themes.pakistanDarkTheme
+    [ThemeType.LIGHT]: pakistanLightTheme,
+    [ThemeType.DARK]: pakistanDarkTheme
   },
   [UserCountry.FRANCE]: {
-    [ThemeType.Light]: themes.franceLightTheme,
-    [ThemeType.Dark]: themes.franceDarkTheme
+    [ThemeType.LIGHT]: franceLightTheme,
+    [ThemeType.DARK]: franceDarkTheme
   }
 });
 // ----------------------

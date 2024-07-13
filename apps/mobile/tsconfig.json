@@ -3,9 +3,12 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
+      "@models": ["models"],
       "@navigation": ["navigation"],
+      "@providers": ["providers"],
       "@screens": ["screens"],
       "@services": ["services"],
+      "@store": ["store"],
       "test-utils": ["../__test-utils__"]
     }
   }

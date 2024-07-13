@@ -1,4 +1,4 @@
-import { Validity } from '@enums';
+import { Validity } from '@enums/validity.enum';
 
 /**
  * 
