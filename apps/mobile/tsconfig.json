@@ -3,7 +3,10 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@services": ["services"]
+      "@navigation": ["navigation"],
+      "@screens": ["screens"],
+      "@services": ["services"],
+      "test-utils": ["../__test-utils__"]
     }
   }
 }

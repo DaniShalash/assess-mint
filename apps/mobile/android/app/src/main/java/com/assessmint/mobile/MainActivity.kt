@@ -13,7 +13,7 @@ class MainActivity : ReactActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         SplashScreenModule.init(this)
-        super.onCreate(savedInstanceState)
+        super.onCreate(null)
     }
     // -----------------------------------------
 
