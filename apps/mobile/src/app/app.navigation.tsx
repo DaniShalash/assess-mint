@@ -5,7 +5,7 @@ import { Theme, ThemeType } from '@assessmint/core';
 
 import { RootStack, NavigationStackID, ScreenRoute } from '@navigation';
 
-import { SplashScreenService } from '@services';
+import { SecurityService, SplashScreenService } from '@services';
 
 import { useTheme } from '@providers';
 
@@ -29,6 +29,7 @@ export const AppNavigation = (): React.JSX.Element => {
   // ---------------------
 
   useEffect(() => {
+    SecurityService.enableWindowSecurity();
     SplashScreenService.hide();
   }, []);
   // ---------------------

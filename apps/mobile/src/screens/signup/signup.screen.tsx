@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useCallback, useMemo, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useState, useCallback, useMemo, useRef } from 'react';
 import { StyleSheet, View, ScrollView, TextInput, ActivityIndicator, NativeSyntheticEvent, ViewStyle, TextStyle } from 'react-native';
 import SegmentedControl, { NativeSegmentedControlIOSChangeEvent } from '@react-native-segmented-control/segmented-control';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -65,6 +65,20 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
   }, [navigation]);
   // ---------------------
 
+  useEffect(() => {
+    if (signUpType === SignUpType.EMAIL) {
+      setUserIdValidity(validateEmail(userId));
+    } else {
+      setUserIdValidity(validateUserName(userId, userCountry));
+    }
+  }, [signUpType, userId, userCountry]);
+  // ---------------------
+
+  useEffect(() => {
+    setPasswordValidity(validatePassword(password));
+  }, [password]);
+  // ---------------------
+
   const onUserCountryChange = useCallback((event: NativeSyntheticEvent<NativeSegmentedControlIOSChangeEvent>) => {
     dispatch(UserActions.setCountry(
       event.nativeEvent.selectedSegmentIndex === 0 ? UserCountry.UAE :
@@ -81,24 +95,8 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
   }, []);
   // ---------------------
 
-  const onUserIdChange = useCallback((input: string) => {
-    if (signUpType === SignUpType.EMAIL) {
-      setUserIdValidity(validateEmail(input));
-    } else {
-      setUserIdValidity(validateUserName(input, userCountry));
-    }
-    setUserId(input);
-  }, [signUpType, userCountry]);
-  // ---------------------
-
   const onUserIdSubmit = useCallback(() => {
     passwordInputRef.current?.focus?.();
-  }, []);
-  // ---------------------
-
-  const onPasswordChange = useCallback((input: string) => {
-    setPasswordValidity(validatePassword(input));
-    setPassword(input);
   }, []);
   // ---------------------
 
@@ -146,7 +144,7 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
-      keyboardShouldPersistTaps="handled"
+      keyboardShouldPersistTaps="always"
       contentInsetAdjustmentBehavior="automatic"
       style={styles.container}
       contentContainerStyle={styles.contentContainer}>
@@ -184,7 +182,7 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
           <View style={inputContainerStyle}>
             <TextInput
               value={userId}
-              onChangeText={onUserIdChange}
+              onChangeText={setUserId}
               onSubmitEditing={onUserIdSubmit}
               placeholder={i18n.t(signUpType === SignUpType.EMAIL ? 'signup.label.email' : 'signup.label.userName')}
               keyboardType={signUpType === SignUpType.EMAIL ? 'email-address' : 'default'}
@@ -217,7 +215,7 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
             <TextInput
               ref={passwordInputRef}
               value={password}
-              onChangeText={onPasswordChange}
+              onChangeText={setPassword}
               onSubmitEditing={signUp}
               placeholder="Password"
               textContentType="password"

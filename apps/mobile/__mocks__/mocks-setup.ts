@@ -21,6 +21,18 @@ const mockedRNLocalize = RNLocalizeMocks;
 jest.mock('react-native-localize', () => mockedRNLocalize);
 
 /**
+ * Security Service
+ */
+jest.mock('@services/security/security.service', () => ({
+  get SecurityService() {
+    return {
+      enableWindowSecurity: jest.fn(),
+      disableWindowSecurity: jest.fn()
+    };
+  }
+}));
+
+/**
  * Splash Screen Service
  */
 jest.mock('@services/splash-screen/splash-screen.service', () => ({
