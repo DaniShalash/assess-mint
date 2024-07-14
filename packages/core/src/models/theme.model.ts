@@ -11,6 +11,10 @@ export type Theme = {
   text2: string;
   background: string;
   background2: string;
+  white: string;
+  black: string;
 };
 // ----------------------
+
+export type ThemeColor = keyof Theme;
 // ------------------------------------------------------------------------------------------

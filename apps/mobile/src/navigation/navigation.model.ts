@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import { LoginScreenParams, DashboardScreenParams } from '@screens';
+import { SignUpScreenParams, DashboardScreenParams } from '@screens';
 
 import { ScreenRoute } from './navigation.enum';
 
@@ -8,7 +8,7 @@ export type RootStackNavigationProps<R extends keyof RootStackParamList> = Nativ
 // ----------------------
 
 export type RootStackParamList = {
-  [ScreenRoute.LOGIN_SCREEN]: LoginScreenParams;
+  [ScreenRoute.SIGNUP_SCREEN]: SignUpScreenParams;
   [ScreenRoute.DASHBOARD_SCREEN]: DashboardScreenParams;
 };
 // ---------------------------------------------------------------------

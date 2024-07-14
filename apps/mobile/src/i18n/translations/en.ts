@@ -9,28 +9,40 @@ const translations = {
   common: {
     label: {
       back: 'Back'
+    },
+    country: {
+      uae: 'UAE',
+      india: 'India',
+      pakistan: 'Pakistan',
+      france: 'France'
     }
   },
   /** *************************************** */
 
-  /** Login ********************************* */
-  login: {
+  /** SignUp ********************************* */
+  signup: {
     title: {
-      main: 'Login'
+      main: 'Sign Up'
     },
     label: {
       email: 'Email',
       userName: 'Username',
-      password: 'Password'
+      password: 'Password',
+      signUpButton: 'Count me in!'
     },
     message: {
-
+      emailCaption: 'Your email address.',
+      userNameAlphabeticalNoSpaceXlengthCaption: 'Minimum {{x}} alphabetical characters only, no spaces.',
+      userNameAlphanumericNoSpaceXlengthCaption: 'Minimum {{x}} alphanumeric characters only, no spaces.',
+      userNameStartAlphabetNoSpaceXlengthCaption: 'Starts with a letter, minimum {{x}} characters, no spaces.',
+      userNameSmallAlphabetOnlyNoSpaceXlengthCaption: 'Minimum {{x}} small letters only, no spaces.',
+      passwordCaption: 'Strong and unique password without spaces.'
     }
   },
   /** *************************************** */
 
   /** Dashboard ***************************** */
-  dashbaord: {
+  dashboard: {
     title: {
       main: 'Dashboard'
     },

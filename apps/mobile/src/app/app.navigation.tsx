@@ -12,7 +12,7 @@ import { useTheme } from '@providers';
 import { i18n } from '@i18n';
 
 import {
-  LoginScreen,
+  SignUpScreen,
   DashboardScreen
 } from '@screens';
 
@@ -54,10 +54,10 @@ export const AppNavigation = (): React.JSX.Element => {
 
           <React.Fragment>
 
-            {/** Login Screen */}
+            {/** Signup Screen */}
             <RootStack.Screen
-              name={ScreenRoute.LOGIN_SCREEN}
-              component={LoginScreen}
+              name={ScreenRoute.SIGNUP_SCREEN}
+              component={SignUpScreen}
               options={{
                 headerLargeTitle: true,
                 headerShadowVisible: false

@@ -18,7 +18,7 @@ export const DashboardScreen = (props: DashboardScreenProps): React.JSX.Element 
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: i18n.t('login.title.main')
+      title: i18n.t('dashboard.title.main')
     });
   }, [navigation]);
   // ---------------------

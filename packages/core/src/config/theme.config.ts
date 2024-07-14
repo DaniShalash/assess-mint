@@ -12,7 +12,9 @@ export const uaeLightTheme: Theme = Object.freeze({
   text: '#000000',
   text2: '#85858B',
   background: '#FFFFFF',
-  background2: '#F2F2F7'
+  background2: '#F2F2F7',
+  white: '#FFFFFF',
+  black: '#000000'
 });
 // ----------------------
 
@@ -26,7 +28,9 @@ export const uaeDarkTheme: Theme = Object.freeze({
   text: '#FFFFFF',
   text2: '#75757B',
   background: '#000000',
-  background2: '#151517'
+  background2: '#151517',
+  white: '#FFFFFF',
+  black: '#000000'
 });
 // ----------------------
 
@@ -40,7 +44,9 @@ export const indiaLightTheme: Theme = Object.freeze({
   text: '#000000',
   text2: '#85858B',
   background: '#FFFFFF',
-  background2: '#F2F2F7'
+  background2: '#F2F2F7',
+  white: '#FFFFFF',
+  black: '#000000'
 });
 // ----------------------
 
@@ -54,7 +60,9 @@ export const indiaDarkTheme: Theme = Object.freeze({
   text: '#FFFFFF',
   text2: '#75757B',
   background: '#000000',
-  background2: '#151517'
+  background2: '#151517',
+  white: '#FFFFFF',
+  black: '#000000'
 });
 // ----------------------
 
@@ -68,7 +76,9 @@ export const pakistanLightTheme: Theme = Object.freeze({
   text: '#000000',
   text2: '#85858B',
   background: '#FFFFFF',
-  background2: '#F2F2F7'
+  background2: '#F2F2F7',
+  white: '#FFFFFF',
+  black: '#000000'
 });
 // ----------------------
 
@@ -82,7 +92,9 @@ export const pakistanDarkTheme: Theme = Object.freeze({
   text: '#FFFFFF',
   text2: '#75757B',
   background: '#000000',
-  background2: '#151517'
+  background2: '#151517',
+  white: '#FFFFFF',
+  black: '#000000'
 });
 // ----------------------
 
@@ -96,7 +108,9 @@ export const franceLightTheme: Theme = Object.freeze({
   text: '#000000',
   text2: '#85858B',
   background: '#FFFFFF',
-  background2: '#F2F2F7'
+  background2: '#F2F2F7',
+  white: '#FFFFFF',
+  black: '#000000'
 });
 // ----------------------
 
@@ -110,6 +124,8 @@ export const franceDarkTheme: Theme = Object.freeze({
   text: '#FFFFFF',
   text2: '#75757B',
   background: '#000000',
-  background2: '#151517'
+  background2: '#151517',
+  white: '#FFFFFF',
+  black: '#000000'
 });
 // ------------------------------------------------------------------------------------------

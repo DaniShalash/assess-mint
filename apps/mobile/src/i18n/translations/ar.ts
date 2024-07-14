@@ -9,28 +9,40 @@ const translations: TranslationObject = {
   common: {
     label: {
       back: 'الخلف'
+    },
+    country: {
+      uae: 'الإمارات',
+      india: 'الهند',
+      pakistan: 'باكستان',
+      france: 'فرنسا'
     }
   },
   /** *************************************** */
 
-  /** Login ********************************* */
-  login: {
+  /** SignUp ********************************* */
+  signup: {
     title: {
-      main: 'تسجيل الدخول'
+      main: 'التسجيل'
     },
     label: {
       email: 'البريد الإلكتروني',
       userName: 'اسم المستخدم',
-      password: 'كلمة المرور'
+      password: 'كلمة المرور',
+      signUpButton: 'سجلني!'
     },
     message: {
-
+      emailCaption: 'عنوان بريدك الإلكتروني.',
+      userNameAlphabeticalNoSpaceXlengthCaption: 'على الأقل {{x}} أحرف أبجدية فقط، بدون مسافات.',
+      userNameAlphanumericNoSpaceXlengthCaption: 'على الأقل {{x}} أحرف أبجدية رقمية فقط، بدون مسافات.',
+      userNameStartAlphabetNoSpaceXlengthCaption: 'يبدأ بحرف، على الأقل {{x}} أحرف، بدون مسافات.',
+      userNameSmallAlphabetOnlyNoSpaceXlengthCaption: 'على الأقل {{x}} أحرف صغيرة فقط، بدون مسافات.',
+      passwordCaption: 'كلمة مرور قوية وفريدة بدون مسافات.'
     }
   },
   /** *************************************** */
 
   /** Dashboard ***************************** */
-  dashbaord: {
+  dashboard: {
     title: {
       main: 'الرئيسية'
     },

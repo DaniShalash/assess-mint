@@ -1,4 +1,4 @@
-import {
+export {
   uaeLightTheme,
   uaeDarkTheme,
   indiaLightTheme,
@@ -8,55 +8,46 @@ import {
   franceLightTheme,
   franceDarkTheme
 } from '@config/theme.config';
-import { userCountryThemeMap } from '@config/user-country-theme-map.config';
-import { userNameRuleCountryMap } from '@config/user-name-rule-country.config';
-import { uaeUserNameRule, indiaUserNameRule, pakistanUserNameRule, franceUserNameRule } from '@config/user-name-rules.config';
 // ----------------------
 
-import type { Theme } from '@models/theme.model';
-import type { UserNameRule } from '@models/user-name-rule.model';
-import type { UserCountryThemeMap } from '@models/user-country-theme-map.model';
-import type { UserNameRuleCountryMap } from '@models/user-name-rule-country-map.model';
+export { userCountryThemeMap } from '@config/user-country-theme-map.config';
 // ----------------------
 
-import { ThemeType } from '@enums/theme.enum';
-import { UserCountry } from '@enums/user-country.enum';
-import { UserNameComposition } from '@enums/user-name-composition.enum';
-import { Validity } from '@enums/validity.enum';
+export { userNameRuleCountryMap } from '@config/user-name-rule-country.config';
 // ----------------------
 
-import { validateEmail } from '@validators/email.validator';
-import { validateUserName } from '@validators/user-name.validator';
+export { uaeUserNameRule, indiaUserNameRule, pakistanUserNameRule, franceUserNameRule } from '@config/user-name-rules.config';
 // ----------------------
 
-export {
-  uaeLightTheme,
-  uaeDarkTheme,
-  indiaLightTheme,
-  indiaDarkTheme,
-  pakistanLightTheme,
-  pakistanDarkTheme,
-  franceLightTheme,
-  franceDarkTheme,
-  userCountryThemeMap,
-  userNameRuleCountryMap,
-  uaeUserNameRule,
-  indiaUserNameRule,
-  pakistanUserNameRule,
-  franceUserNameRule,
-  ThemeType,
-  UserCountry,
-  UserNameComposition,
-  Validity,
-  validateEmail,
-  validateUserName
-};
+export type { Theme, ThemeColor } from '@models/theme.model';
 // ----------------------
 
-export type {
-  Theme,
-  UserNameRule,
-  UserCountryThemeMap,
-  UserNameRuleCountryMap
-};
+export type { UserNameRule } from '@models/user-name-rule.model';
+// ----------------------
+
+export type { UserCountryThemeMap } from '@models/user-country-theme-map.model';
+// ----------------------
+
+export type { UserNameRuleCountryMap } from '@models/user-name-rule-country-map.model';
+// ----------------------
+
+export { ThemeType } from '@enums/theme.enum';
+// ----------------------
+
+export { UserCountry } from '@enums/user-country.enum';
+// ----------------------
+
+export { UserNameComposition } from '@enums/user-name-composition.enum';
+// ----------------------
+
+export { Validity } from '@enums/validity.enum';
+// ----------------------
+
+export { validateEmail } from '@validators/email.validator';
+// ----------------------
+
+export { validatePassword } from '@validators/password.validator';
+// ----------------------
+
+export { validateUserName } from '@validators/user-name.validator';
 // ------------------------------------------------------------------------------------------

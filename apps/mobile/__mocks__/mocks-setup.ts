@@ -1,5 +1,6 @@
 import '@testing-library/react-native/extend-expect';
 import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock';
+import * as RNLocalizeMocks from 'react-native-localize/mock';
 
 /**
  * Safe Area Context
@@ -12,6 +13,12 @@ jest.mock('react-native-safe-area-context', () => mockSafeAreaContext);
  */
 require('react-native-reanimated').setUpTests();
 // ---------------------
+
+/**
+ * React Native Localize
+ */
+const mockedRNLocalize = RNLocalizeMocks;
+jest.mock('react-native-localize', () => mockedRNLocalize);
 
 /**
  * Splash Screen Service
