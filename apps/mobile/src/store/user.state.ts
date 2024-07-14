@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { UserCountry } from '@assessmint/core';
 
-import { UserState } from '@models';
+import { UserState } from './state.model';
 
 // Initial State
 const initialState: UserState = {

@@ -4,7 +4,7 @@ import {
   TypedUseSelectorHook
 } from 'react-redux';
 
-import { GlobalState } from '@models';
+import { GlobalState } from './state.model';
 
 import { Store } from './store';
 

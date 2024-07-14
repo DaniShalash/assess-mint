@@ -9,6 +9,8 @@ import { SplashScreenService } from '@services';
 
 import { useTheme } from '@providers';
 
+import { i18n } from '@i18n';
+
 import {
   LoginScreen,
   DashboardScreen
@@ -44,7 +46,10 @@ export const AppNavigation = (): React.JSX.Element => {
       }
     }}>
 
-      <RootStack.Navigator id={NavigationStackID.ROOT}>
+      <RootStack.Navigator id={NavigationStackID.ROOT} screenOptions={{
+        headerBackTitle: i18n.t('common.label.back')
+      }}>
+
         {!isAuthenticated ? (
 
           <React.Fragment>

@@ -16,6 +16,7 @@
 		1A3CE3DE2C419DEC00E3540F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A3CE3DD2C419DEC00E3540F /* Colors.xcassets */; };
 		1A3CE3E42C41B4D700E3540F /* SplashScreenModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3CE3E32C41B4D700E3540F /* SplashScreenModule.swift */; };
 		1A3CE3E62C41B53900E3540F /* SplashScreen-Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3CE3E52C41B53900E3540F /* SplashScreen-Bridge.m */; };
+		1A6EF14A2C43C9D900936299 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A6EF1482C43C9D900936299 /* Localizable.strings */; };
 		7699B88040F8A987B510C191 /* libPods-AssessmintMobile-AssessmintMobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-AssessmintMobile-AssessmintMobileTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,9 @@
 		1A3CE3E22C41B4D700E3540F /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		1A3CE3E32C41B4D700E3540F /* SplashScreenModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenModule.swift; sourceTree = "<group>"; };
 		1A3CE3E52C41B53900E3540F /* SplashScreen-Bridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SplashScreen-Bridge.m"; sourceTree = "<group>"; };
+		1A6EF1492C43C9D900936299 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1A6EF14B2C43C9DE00936299 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1A6EF14C2C43C9E000936299 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		22BCD614C6618FCFD44A12BD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = AssessmintMobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-AssessmintMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssessmintMobile.debug.xcconfig"; path = "Target Support Files/Pods-AssessmintMobile/Pods-AssessmintMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-AssessmintMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssessmintMobile.release.xcconfig"; path = "Target Support Files/Pods-AssessmintMobile/Pods-AssessmintMobile.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				22BCD614C6618FCFD44A12BD /* PrivacyInfo.xcprivacy */,
+				1A6EF1482C43C9D900936299 /* Localizable.strings */,
 			);
 			name = AssessmintMobile;
 			sourceTree = "<group>";
@@ -249,6 +254,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				fr,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -273,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A6EF14A2C43C9D900936299 /* Localizable.strings in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				1A3CE3DE2C419DEC00E3540F /* Colors.xcassets in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
@@ -442,6 +450,19 @@
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1A6EF1482C43C9D900936299 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A6EF1492C43C9D900936299 /* en */,
+				1A6EF14B2C43C9DE00936299 /* ar */,
+				1A6EF14C2C43C9E000936299 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
