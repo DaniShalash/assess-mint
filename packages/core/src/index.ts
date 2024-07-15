@@ -1,4 +1,6 @@
 export {
+  defaultLightTheme,
+  defaultDarkTheme,
   uaeLightTheme,
   uaeDarkTheme,
   indiaLightTheme,

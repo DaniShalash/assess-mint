@@ -2,6 +2,38 @@ import { Theme } from '@models/theme.model';
 
 import { ThemeType } from '@enums/theme.enum';
 
+export const defaultLightTheme: Theme = Object.freeze({
+  type: ThemeType.LIGHT,
+  primary: '#4CAF50',
+  secondary: '#2E7D32',
+  success: '#51B517',
+  warning: '#EDCA3B',
+  error: '#E03F1F',
+  text: '#000000',
+  text2: '#85858B',
+  background: '#FFFFFF',
+  background2: '#F2F2F7',
+  white: '#FFFFFF',
+  black: '#000000'
+});
+// ----------------------
+
+export const defaultDarkTheme: Theme = Object.freeze({
+  type: ThemeType.DARK,
+  primary: '#4CAF50',
+  secondary: '#2E7D32',
+  success: '#51B517',
+  warning: '#EDCA3B',
+  error: '#E03F1F',
+  text: '#FFFFFF',
+  text2: '#75757B',
+  background: '#000000',
+  background2: '#151517',
+  white: '#FFFFFF',
+  black: '#000000'
+});
+// ----------------------
+
 export const uaeLightTheme: Theme = Object.freeze({
   type: ThemeType.LIGHT,
   primary: '#FF0000',
