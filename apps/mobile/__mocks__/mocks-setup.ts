@@ -42,4 +42,16 @@ jest.mock('@services/splash-screen/splash-screen.service', () => ({
     };
   }
 }));
+
+/**
+ * Auth Service
+ */
+jest.mock('@services/auth/auth-service.ts', () => ({
+  get AuthService() {
+    return {
+      signUp: jest.fn(),
+      login: jest.fn()
+    };
+  }
+}));
 // -----------------------------------------------------------------------

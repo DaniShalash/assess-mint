@@ -19,6 +19,15 @@ const translations = {
   },
   /** *************************************** */
 
+  /** Errors ********************************* */
+  error: {
+    message: {
+      generic: 'Something went wrong.',
+      wrongCredentials: 'Invalid email/username or password.'
+    }
+  },
+  /** *************************************** */
+
   /** SignIn ********************************* */
   signIn: {
     title: {

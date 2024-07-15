@@ -19,6 +19,15 @@ const translations: TranslationObject = {
   },
   /** *************************************** */
 
+  /** Errors ********************************* */
+  error: {
+    message: {
+      generic: 'Quelque chose s\'est mal passé.',
+      wrongCredentials: 'Email/nom d\'utilisateur ou mot de passe incorrect.'
+    }
+  },
+  /** *************************************** */
+
   /** SignIn ********************************* */
   signIn: {
     title: {
