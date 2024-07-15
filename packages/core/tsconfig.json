@@ -24,6 +24,7 @@
     "paths": {
       "@config/*": ["config/*"],
       "@enums/*": ["enums/*"],
+      "@errors/*": ["errors/*"],
       "@models/*": ["models/*"],
       "@validators/*": ["validators/*"]
     }

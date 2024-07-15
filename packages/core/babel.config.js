@@ -10,6 +10,7 @@ module.exports = {
       alias: {
         '@config': './src/config',
         '@enums': './src/enums',
+        '@errors': './src/errors',
         '@models': './src/models',
         '@validators': './src/validators'
       }

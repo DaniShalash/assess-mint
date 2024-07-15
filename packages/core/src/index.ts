@@ -19,6 +19,10 @@ export { UserNameComposition } from '@enums/user-name-composition.enum';
 export { Validity } from '@enums/validity.enum';
 // ----------------------
 
+export { MintError } from '@errors/mint.error';
+export type { MintErrorDescriptor } from '@errors/mint.error';
+// ----------------------
+
 export { validateEmail } from '@validators/email.validator';
 // ----------------------
 

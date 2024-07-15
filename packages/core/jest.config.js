@@ -14,6 +14,7 @@ module.exports = {
   moduleNameMapper: {
     '^@config(.*)$': '<rootDir>/src/config$1',
     '^@enums(.*)$': '<rootDir>/src/enums$1',
+    '^@errors(.*)$': '<rootDir>/src/errors$1',
     '^@models(.*)$': '<rootDir>/src/models$1',
     '^@validators(.*)$': '<rootDir>/src/validators$1'
   }
