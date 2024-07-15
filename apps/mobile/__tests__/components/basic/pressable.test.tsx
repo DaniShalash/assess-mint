@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, fireEvent } from 'test-utils';
+import { renderComponent, fireEvent } from 'test-utils';
 
 import { Text, Pressable } from '@components/basic';
 
@@ -8,7 +8,7 @@ describe('Pressable', () => {
 
   it('handles presses correctly', () => {
     const onPress = jest.fn();
-    const { getByTestId } = render((
+    const { getByTestId } = renderComponent((
       <Pressable onPress={onPress} testID="pressable">
         <Text>Press Me</Text>
       </Pressable>
