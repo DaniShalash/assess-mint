@@ -29,7 +29,7 @@ const translations = {
       userName: 'Username',
       password: 'Password',
       signUp: 'Sign Up',
-      login: 'Login'
+      login: 'Have an account? Login'
     },
     message: {
       emailCaption: 'Your email address.',

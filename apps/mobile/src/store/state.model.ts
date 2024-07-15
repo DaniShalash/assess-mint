@@ -12,6 +12,6 @@ export type AuthState = {
 // ----------------------
 
 export type UserState = {
-  country: UserCountry;
+  country?: UserCountry;
 }
 // ---------------------------------------------------------------------

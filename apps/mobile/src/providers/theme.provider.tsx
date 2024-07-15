@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Appearance, StatusBar, StatusBarStyle, NativeEventSubscription } from 'react-native';
 
 import {
-  uaeLightTheme,
-  uaeDarkTheme,
+  defaultLightTheme,
+  defaultDarkTheme,
   userCountryThemeMap,
   Theme,
   UserCountry,
@@ -17,7 +17,7 @@ type AppearancePreference = {
 };
 // ----------------------
 
-const defaultTheme = () => Appearance.getColorScheme() === 'dark' ? uaeDarkTheme : uaeLightTheme;
+const defaultTheme = () => Appearance.getColorScheme() === 'dark' ? defaultDarkTheme : defaultLightTheme;
 // ----------------------
 
 const ThemeContext = React.createContext<Theme>(defaultTheme());
@@ -34,11 +34,11 @@ export const ThemeProvider = (props: React.PropsWithChildren<{}>) => {
   const [colorScheme, setColorScheme] = useState(Appearance.getColorScheme());
   // ---------------------
 
-  const userCountry: UserCountry = useSelector(state => state.user.country);
+  const userCountry: UserCountry | undefined = useSelector(state => state.user.country);
   // ---------------------
 
   const themeType: ThemeType = colorScheme === 'dark' ? ThemeType.DARK : ThemeType.LIGHT;
-  const theme: Theme = userCountryThemeMap[userCountry]?.[themeType] || defaultTheme();
+  const theme: Theme = userCountry ? userCountryThemeMap[userCountry][themeType] : defaultTheme();
   // ---------------------
 
   const statusBarBackground: string = theme.background;

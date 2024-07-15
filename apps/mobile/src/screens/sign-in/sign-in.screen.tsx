@@ -11,8 +11,6 @@ import {
   Validity
 } from '@assessmint/core';
 
-import { useSelector, useDispatch, UserActions } from '@store';
-
 import { RootStackNavigationProps, ScreenRoute } from '@navigation';
 
 import { useTheme } from '@providers';
@@ -34,6 +32,7 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
   const { navigation } = props;
   // ---------------------
 
+  const [userCountry, setUserCountry] = useState<UserCountry>(UserCountry.UAE);
   const [signInType, setSignInType] = useState<number>(SignInType.EMAIL);
   const [userId, setUserId] = useState<string>('');
   const [userIdValidity, setUserIdValidity] = useState<Validity>(Validity.UNDETERMINED);
@@ -41,10 +40,6 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
   const [passwordValidity, setPasswordValidity] = useState<Validity>(Validity.UNDETERMINED);
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  // ---------------------
-
-  const dispatch = useDispatch();
-  const userCountry: UserCountry = useSelector(state => state.user.country);
   // ---------------------
 
   const theme = useTheme();
@@ -80,12 +75,12 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
   // ---------------------
 
   const onUserCountryChange = useCallback((event: NativeSyntheticEvent<NativeSegmentedControlIOSChangeEvent>) => {
-    dispatch(UserActions.setCountry(
+    setUserCountry(
       event.nativeEvent.selectedSegmentIndex === 0 ? UserCountry.UAE :
       event.nativeEvent.selectedSegmentIndex === 1 ? UserCountry.INDIA :
       event.nativeEvent.selectedSegmentIndex === 2 ? UserCountry.PAKISTAN : UserCountry.FRANCE
-    ));
-  }, [dispatch]);
+    );
+  }, []);
   // ---------------------
 
   const onSignInTypeChange = useCallback((event: NativeSyntheticEvent<NativeSegmentedControlIOSChangeEvent>) => {
@@ -251,10 +246,10 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
 
         {/** Login */}
         <Pressable onPress={login} disabled={isLoading} style={styles.buttonFlex} testID="loginButton">
-          <Background color="primary" style={styles.button}>
-            {!isLoading && <Text color="white">{i18n.t('signIn.label.login')}</Text>}
-            {isLoading && <ActivityIndicator size="small" color={theme.white} />}
-          </Background>
+          <View style={styles.button}>
+            {!isLoading && <Text color="secondary">{i18n.t('signIn.label.login')}</Text>}
+            {isLoading && <ActivityIndicator size="small" color={theme.secondary} />}
+          </View>
         </Pressable>
 
       </View>
@@ -307,8 +302,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16
   },
   buttonsContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
+    alignItems: 'stretch',
     justifyContent: 'center',
     marginVertical: 16,
     gap: 8

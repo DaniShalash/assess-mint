@@ -2,7 +2,7 @@ import React from 'react';
 
 import { renderScreen, fireEvent } from 'test-utils';
 
-import { UserCountry, userCountryThemeMap } from '@assessmint/core';
+import { defaultLightTheme } from '@assessmint/core';
 
 import { RootStack, ScreenRoute } from '@navigation';
 
@@ -52,7 +52,7 @@ describe('SignInScreen', () => {
     const passwordCaption = getByTestId('passwordCaption');
     const loginButton = getByTestId('loginButton');
     fireEvent.press(loginButton);
-    const theme = userCountryThemeMap[UserCountry.UAE].light;
+    const theme = defaultLightTheme;
     expect(userIdCaption).toHaveStyle({ color: theme.error });
     expect(passwordCaption).toHaveStyle({ color: theme.error });
   });
@@ -64,7 +64,7 @@ describe('SignInScreen', () => {
     const passwordCaption = getByTestId('passwordCaption');
     const signUpButton = getByTestId('signUpButton');
     fireEvent.press(signUpButton);
-    const theme = userCountryThemeMap[UserCountry.UAE].light;
+    const theme = defaultLightTheme;
     expect(userIdCaption).toHaveStyle({ color: theme.error });
     expect(passwordCaption).toHaveStyle({ color: theme.error });
   });

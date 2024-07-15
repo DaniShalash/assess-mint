@@ -6,7 +6,7 @@ import { UserState } from './state.model';
 
 // Initial State
 const initialState: UserState = {
-  country: UserCountry.UAE
+  country: undefined
 };
 // ---------------------------------------------------------------------
 
