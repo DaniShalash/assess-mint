@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { Theme, ThemeType } from '@assessmint/core';
+import { Theme, ThemeType } from '@assessmint/theme';
 
 import { RootStack, NavigationStackID, ScreenRoute } from '@navigation';
 

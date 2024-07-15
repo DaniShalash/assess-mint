@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text as RNText, TextProps as RNTextProps, TextStyle } from 'react-native';
 
-import { Theme, ThemeColor } from '@assessmint/core';
+import { Theme, ThemeColor } from '@assessmint/theme';
 
 import { useTheme } from '@providers';
 

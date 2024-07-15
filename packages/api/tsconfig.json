@@ -3,7 +3,6 @@
     "module": "esnext",
     "target": "esnext",
     "lib": ["esnext"],
-    "types": ["jest"],
     "allowJs": true,
     "outDir": "dist",
     "skipLibCheck": true,
@@ -22,10 +21,7 @@
     "sourceMap": true,
     "baseUrl": "./src",
     "paths": {
-      "@config/*": ["config/*"],
-      "@enums/*": ["enums/*"],
-      "@models/*": ["models/*"],
-      "@validators/*": ["validators/*"]
+      "@models/*": ["models/*"]
     }
   },
   "include": ["src/**/*.ts"],

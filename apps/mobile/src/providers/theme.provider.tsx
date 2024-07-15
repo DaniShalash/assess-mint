@@ -6,9 +6,9 @@ import {
   defaultDarkTheme,
   userCountryThemeMap,
   Theme,
-  UserCountry,
   ThemeType
-} from '@assessmint/core';
+} from '@assessmint/theme';
+import { UserCountry } from '@assessmint/core';
 
 import { useSelector } from '@store';
 

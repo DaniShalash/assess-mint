@@ -8,7 +8,9 @@
   "scripts": {
     "mobile": "yarn workspace mobile",
     "web": "yarn workspace web",
-    "core": "yarn workspace @assessmint/core"
+    "core": "yarn workspace @assessmint/core",
+    "theme": "yarn workspace @assessmint/theme",
+    "api": "yarn workspace @assessmint/api"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",

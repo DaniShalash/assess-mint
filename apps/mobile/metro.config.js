@@ -16,7 +16,9 @@ config.watchFolders = [workspaceRoot];
 // that are being used between the mono repo's apps)
 
 const monorepoPackages = {
-  '@assessmint/core': path.resolve(workspaceRoot, 'packages/core')
+  '@assessmint/core': path.resolve(workspaceRoot, 'packages/core'),
+  '@assessmint/theme': path.resolve(workspaceRoot, 'packages/theme'),
+  '@assessmint/api': path.resolve(workspaceRoot, 'packages/api')
 };
 config.watchFolders = [projectRoot, ...Object.values(monorepoPackages)];
 

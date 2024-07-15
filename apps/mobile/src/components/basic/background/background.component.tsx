@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ViewProps } from 'react-native';
 
-import { Theme, ThemeColor } from '@assessmint/core';
+import { Theme, ThemeColor } from '@assessmint/theme';
 
 import { useTheme } from '@providers';
 

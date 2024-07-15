@@ -207,7 +207,7 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
               onChangeText={setPassword}
               placeholder="Password"
               textContentType="password"
-              returnKeyType="go"
+              returnKeyType="done"
               secureTextEntry={!isPasswordVisible || isLoading}
               editable={!isLoading}
               numberOfLines={1}

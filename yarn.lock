@@ -22,6 +22,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@assessmint/api@workspace:^, @assessmint/api@workspace:packages/api":
+  version: 0.0.0-use.local
+  resolution: "@assessmint/api@workspace:packages/api"
+  dependencies:
+    "@assessmint/core": "workspace:^"
+    "@babel/cli": ^7.24.8
+    "@babel/core": ^7.24.8
+    "@babel/preset-env": ^7.24.8
+    "@babel/preset-typescript": ^7.24.7
+    "@babel/runtime": ^7.24.8
+    "@typescript-eslint/eslint-plugin": ^7.16.0
+    "@typescript-eslint/parser": ^7.16.0
+    babel-plugin-module-resolver: ^5.0.2
+    eslint: ^8.19.0
+    rimraf: ^6.0.1
+    tsc-alias: ^1.8.10
+  languageName: unknown
+  linkType: soft
+
 "@assessmint/core@workspace:^, @assessmint/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@assessmint/core@workspace:packages/core"
@@ -38,9 +57,27 @@ __metadata:
     babel-plugin-module-resolver: ^5.0.2
     eslint: ^8.19.0
     jest: ^29.7.0
-    react: ^18.3.1
     rimraf: ^6.0.1
     ts-jest: ^29.2.2
+    tsc-alias: ^1.8.10
+  languageName: unknown
+  linkType: soft
+
+"@assessmint/theme@workspace:^, @assessmint/theme@workspace:packages/theme":
+  version: 0.0.0-use.local
+  resolution: "@assessmint/theme@workspace:packages/theme"
+  dependencies:
+    "@assessmint/core": "workspace:^"
+    "@babel/cli": ^7.24.8
+    "@babel/core": ^7.24.8
+    "@babel/preset-env": ^7.24.8
+    "@babel/preset-typescript": ^7.24.7
+    "@babel/runtime": ^7.24.8
+    "@typescript-eslint/eslint-plugin": ^7.16.0
+    "@typescript-eslint/parser": ^7.16.0
+    babel-plugin-module-resolver: ^5.0.2
+    eslint: ^8.19.0
+    rimraf: ^6.0.1
     tsc-alias: ^1.8.10
   languageName: unknown
   linkType: soft
@@ -8371,7 +8408,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "mobile@workspace:apps/mobile"
   dependencies:
+    "@assessmint/api": "workspace:^"
     "@assessmint/core": "workspace:^"
+    "@assessmint/theme": "workspace:^"
     "@babel/core": ^7.20.0
     "@babel/preset-env": ^7.20.0
     "@babel/runtime": ^7.20.0
@@ -9609,7 +9648,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18, react@npm:^18.3.1":
+"react@npm:^18":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
   dependencies:

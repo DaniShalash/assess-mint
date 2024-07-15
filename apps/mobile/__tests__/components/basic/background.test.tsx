@@ -2,7 +2,7 @@ import React from 'react';
 
 import { renderComponent } from 'test-utils';
 
-import { defaultLightTheme } from '@assessmint/core';
+import { defaultLightTheme } from '@assessmint/theme';
 
 import { Background } from '@components/basic';
 

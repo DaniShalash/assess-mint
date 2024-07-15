@@ -1,7 +1,8 @@
+import { UserCountry } from '@assessmint/core';
+
 import { UserCountryThemeMap } from '@models/user-country-theme-map.model';
 
 import { ThemeType } from '@enums/theme.enum';
-import { UserCountry } from '@enums/user-country.enum';
 
 import {
   uaeLightTheme,

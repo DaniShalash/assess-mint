@@ -2,7 +2,7 @@ import React from 'react';
 
 import { renderScreen, fireEvent } from 'test-utils';
 
-import { defaultLightTheme } from '@assessmint/core';
+import { defaultLightTheme } from '@assessmint/theme';
 
 import { RootStack, ScreenRoute } from '@navigation';
 
