@@ -9,6 +9,7 @@ module.exports = {
         '@i18n': './src/i18n',
         '@navigation': './src/navigation',
         '@providers': './src/providers',
+        '@sagas': './src/sagas',
         '@screens': './src/screens',
         '@services': './src/services',
         '@store': './src/store',

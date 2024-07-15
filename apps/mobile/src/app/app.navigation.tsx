@@ -3,6 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { Theme, ThemeType } from '@assessmint/theme';
 
+import { useSelector } from '@store';
+
 import { RootStack, NavigationStackID, ScreenRoute } from '@navigation';
 
 import { SecurityService, SplashScreenService } from '@services';
@@ -18,11 +20,7 @@ import {
 
 export const AppNavigation = (): React.JSX.Element => {
 
-  /**
-   * Placeholder for when the app state is implemented,
-   * this will be replaced with actual authentication state.
-   */
-  const isAuthenticated: boolean = false;
+  const isAuthenticated: boolean = useSelector(state => Boolean(state.auth.jwt));
   // ---------------------
 
   const theme: Theme = useTheme();

@@ -5,7 +5,7 @@ import { UserCountry } from '@assessmint/core';
 import { UserState } from './state.model';
 
 // Initial State
-const initialState: UserState = {
+export const initialState: UserState = {
   country: undefined
 };
 // ---------------------------------------------------------------------

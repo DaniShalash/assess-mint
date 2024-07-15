@@ -2,6 +2,11 @@ import '@testing-library/react-native/extend-expect';
 import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock';
 import * as RNLocalizeMocks from 'react-native-localize/mock';
 
+import {
+  LoginResponse,
+  SignUpResponse
+} from '@assessmint/api';
+
 /**
  * Safe Area Context
  */
@@ -46,11 +51,12 @@ jest.mock('@services/splash-screen/splash-screen.service', () => ({
 /**
  * Auth Service
  */
-jest.mock('@services/auth/auth-service.ts', () => ({
+jest.mock('@services/auth/auth.service.ts', () => ({
   get AuthService() {
     return {
-      signUp: jest.fn(),
-      login: jest.fn()
+      signUp: () => ({ jwt: '123' } satisfies SignUpResponse),
+      login: () => ({ jwt: '123' } satisfies LoginResponse),
+      logout: jest.fn()
     };
   }
 }));

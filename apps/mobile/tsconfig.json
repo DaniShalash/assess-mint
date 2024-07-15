@@ -7,6 +7,7 @@
       "@i18n": ["i18n"],
       "@navigation": ["navigation"],
       "@providers": ["providers"],
+      "@sagas": ["sagas"],
       "@screens": ["screens"],
       "@services": ["services"],
       "@store": ["store"],

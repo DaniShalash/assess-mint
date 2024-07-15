@@ -3,7 +3,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { AuthState } from './state.model';
 
 // Initial State
-const initialState: AuthState = {
+export const initialState: AuthState = {
   jwt: undefined
 };
 // ---------------------------------------------------------------------
