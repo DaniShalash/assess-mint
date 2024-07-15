@@ -28,7 +28,8 @@ const translations: TranslationObject = {
       email: 'Email',
       userName: 'Nom d\'utilisateur',
       password: 'Mot de passe',
-      signUp: 'S\'inscrire'
+      signUp: 'S\'inscrire',
+      login: 'S\'identifier'
     },
     message: {
       emailCaption: 'Votre adresse e-mail.',

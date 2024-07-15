@@ -46,6 +46,18 @@ describe('SignInScreen', () => {
   });
   // ---------------------
 
+  it('triggers login button callback and causes input cpations to get highlighted', () => {
+    const { getByTestId } = renderScreen(screen);
+    const userIdCaption = getByTestId('userIdCaption');
+    const passwordCaption = getByTestId('passwordCaption');
+    const loginButton = getByTestId('loginButton');
+    fireEvent.press(loginButton);
+    const theme = userCountryThemeMap[UserCountry.UAE].light;
+    expect(userIdCaption).toHaveStyle({ color: theme.error });
+    expect(passwordCaption).toHaveStyle({ color: theme.error });
+  });
+  // ---------------------
+
   it('triggers signUp button callback and causes input cpations to get highlighted', () => {
     const { getByTestId } = renderScreen(screen);
     const userIdCaption = getByTestId('userIdCaption');

@@ -28,7 +28,8 @@ const translations: TranslationObject = {
       email: 'البريد الإلكتروني',
       userName: 'اسم المستخدم',
       password: 'كلمة المرور',
-      signUp: 'تسجيل'
+      signUp: 'تسجيل',
+      login: 'تسجيل الدخول'
     },
     message: {
       emailCaption: 'عنوان بريدك الإلكتروني.',

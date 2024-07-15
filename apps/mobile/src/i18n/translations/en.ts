@@ -28,7 +28,8 @@ const translations = {
       email: 'Email',
       userName: 'Username',
       password: 'Password',
-      signUp: 'Sign Up'
+      signUp: 'Sign Up',
+      login: 'Login'
     },
     message: {
       emailCaption: 'Your email address.',

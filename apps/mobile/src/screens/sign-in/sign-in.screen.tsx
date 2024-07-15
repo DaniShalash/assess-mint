@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState, useCallback, useMemo, useRef } from 'react';
-import { StyleSheet, View, ScrollView, TextInput, ActivityIndicator, NativeSyntheticEvent, ViewStyle, TextStyle } from 'react-native';
+import { StyleSheet, View, ScrollView, TextInput, ActivityIndicator, NativeSyntheticEvent, TextStyle } from 'react-native';
 import SegmentedControl, { NativeSegmentedControlIOSChangeEvent } from '@react-native-segmented-control/segmented-control';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
@@ -17,7 +17,7 @@ import { RootStackNavigationProps, ScreenRoute } from '@navigation';
 
 import { useTheme } from '@providers';
 
-import { Text, textVariants, Pressable } from '@components/basic';
+import { Background, Text, textVariants, Pressable } from '@components/basic';
 
 import { i18n } from '@i18n';
 
@@ -105,39 +105,33 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
   }, []);
   // ---------------------
 
-  const signUp = useCallback(() => {
+  const validateCredentials = useCallback((): boolean => {
     if (userIdValidity !== Validity.VALID || passwordValidity !== Validity.VALID) {
       if (userIdValidity === Validity.UNDETERMINED) setUserIdValidity(Validity.INVALID);
       if (passwordValidity === Validity.UNDETERMINED) setPasswordValidity(Validity.INVALID);
-      return;
+      return false;
     }
-    setIsLoading(true);
-    // **TODO**
+    return true;
   }, [userIdValidity, passwordValidity]);
   // ---------------------
 
-  const inputContainerStyle: ViewStyle = {
-    ...styles.inputContainer,
-    backgroundColor: theme.background2
-  };
+  const signUp = useCallback(() => {
+    if (!validateCredentials()) return;
+    setIsLoading(true);
+    // **TODO**
+  }, [validateCredentials]);
+  // ---------------------
+
+  const login = useCallback(() => {
+    if (!validateCredentials()) return;
+    setIsLoading(true);
+    // **TODO**
+  }, [validateCredentials]);
   // ---------------------
 
   const inputStyle: TextStyle = {
     ...styles.input,
     color: theme.text
-  };
-  // ---------------------
-
-  const signUpButtonStyle: ViewStyle = {
-    ...styles.signUpButton,
-    borderColor: theme.primary
-  };
-  // ---------------------
-
-  const signUpButtonInnerStyle: ViewStyle = {
-    ...styles.signupButtonInner,
-    borderColor: userCountry === UserCountry.UAE ? theme.black : theme.white,
-    backgroundColor: theme.secondary
   };
   // ---------------------
 
@@ -179,7 +173,7 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
         <View style={styles.field}>
 
           {/** Input */}
-          <View style={inputContainerStyle}>
+          <Background color="background2" style={styles.inputContainer}>
             <TextInput
               value={userId}
               onChangeText={setUserId}
@@ -195,7 +189,7 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
               clearTextOnFocus={false}
               style={inputStyle}
               testID="userIdInput" />
-          </View>
+          </Background>
 
           {/** Caption */}
           <Text
@@ -211,7 +205,7 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
         <View style={styles.field}>
 
           {/** Input */}
-          <View style={inputContainerStyle}>
+          <Background color="background2" style={styles.inputContainer}>
             <TextInput
               ref={passwordInputRef}
               value={password}
@@ -230,7 +224,7 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
             <Pressable disabled={isLoading} onPress={onPasswordVisibilityPress} style={styles.inputAccessory}>
               <MaterialIcon size={24} color={theme.text} name={isPasswordVisible && !isLoading ? 'visibility-off' : 'visibility'} />
             </Pressable>
-          </View>
+          </Background>
 
           {/** Caption */}
           <Text
@@ -244,13 +238,26 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
 
       </View>
 
-      {/** SignUp Button */}
-      <Pressable onPress={signUp} disabled={isLoading} style={signUpButtonStyle} testID="signUpButton">
-        <View style={signUpButtonInnerStyle}>
-          {!isLoading && <Text color="white">{i18n.t('signIn.label.signUp')}</Text>}
-          {isLoading && <ActivityIndicator size="small" color={theme.white} />}
-        </View>
-      </Pressable>
+      {/** Buttons */}
+      <View style={styles.buttonsContainer}>
+
+        {/** SignUp */}
+        <Pressable onPress={signUp} disabled={isLoading} style={styles.buttonFlex} testID="signUpButton">
+          <Background color="primary" style={styles.button}>
+            {!isLoading && <Text color="white">{i18n.t('signIn.label.signUp')}</Text>}
+            {isLoading && <ActivityIndicator size="small" color={theme.white} />}
+          </Background>
+        </Pressable>
+
+        {/** Login */}
+        <Pressable onPress={login} disabled={isLoading} style={styles.buttonFlex} testID="loginButton">
+          <Background color="primary" style={styles.button}>
+            {!isLoading && <Text color="white">{i18n.t('signIn.label.login')}</Text>}
+            {isLoading && <ActivityIndicator size="small" color={theme.white} />}
+          </Background>
+        </Pressable>
+
+      </View>
 
     </ScrollView>
   );
@@ -299,20 +306,22 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     paddingHorizontal: 16
   },
-  signUpButton: {
-    marginVertical: 16,
-    borderRadius: 24,
-    borderWidth: StyleSheet.hairlineWidth * 15,
-    borderCurve: 'continuous'
-  },
-  signupButtonInner: {
-    flex: 1,
+  buttonsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 12,
-    borderRadius: 18,
-    borderWidth: StyleSheet.hairlineWidth * 15,
+    marginVertical: 16,
+    gap: 8
+  },
+  buttonFlex: {
+    flex: 1
+  },
+  button: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 16,
+    borderRadius: 8,
     borderCurve: 'continuous'
   }
 });
