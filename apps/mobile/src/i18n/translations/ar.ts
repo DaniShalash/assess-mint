@@ -19,8 +19,8 @@ const translations: TranslationObject = {
   },
   /** *************************************** */
 
-  /** SignUp ********************************* */
-  signup: {
+  /** SignIn ********************************* */
+  signIn: {
     title: {
       main: 'التسجيل'
     },
@@ -28,7 +28,7 @@ const translations: TranslationObject = {
       email: 'البريد الإلكتروني',
       userName: 'اسم المستخدم',
       password: 'كلمة المرور',
-      signUpButton: 'سجلني!'
+      signUp: 'تسجيل'
     },
     message: {
       emailCaption: 'عنوان بريدك الإلكتروني.',

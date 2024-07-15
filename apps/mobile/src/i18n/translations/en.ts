@@ -19,16 +19,16 @@ const translations = {
   },
   /** *************************************** */
 
-  /** SignUp ********************************* */
-  signup: {
+  /** SignIn ********************************* */
+  signIn: {
     title: {
-      main: 'Sign Up'
+      main: 'Sign In'
     },
     label: {
       email: 'Email',
       userName: 'Username',
       password: 'Password',
-      signUpButton: 'Count me in!'
+      signUp: 'Sign Up'
     },
     message: {
       emailCaption: 'Your email address.',

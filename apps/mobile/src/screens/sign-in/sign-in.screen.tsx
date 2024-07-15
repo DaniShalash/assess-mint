@@ -21,20 +21,20 @@ import { Text, textVariants, Pressable } from '@components/basic';
 
 import { i18n } from '@i18n';
 
-import { getUserIdCaption, SignUpType } from './signup.utils';
+import { getUserIdCaption, SignInType } from './sign-in.utils';
 
-type NavigationProps = RootStackNavigationProps<ScreenRoute.SIGNUP_SCREEN>;
+type NavigationProps = RootStackNavigationProps<ScreenRoute.SIGNIN_SCREEN>;
 
-export type SignUpScreenParams = {};
+export type SignInScreenParams = {};
 
-export type SignUpScreenProps = NavigationProps & {};
+export type SignInScreenProps = NavigationProps & {};
 
-export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
+export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
 
   const { navigation } = props;
   // ---------------------
 
-  const [signUpType, setSignUpType] = useState<number>(SignUpType.EMAIL);
+  const [signInType, setSignInType] = useState<number>(SignInType.EMAIL);
   const [userId, setUserId] = useState<string>('');
   const [userIdValidity, setUserIdValidity] = useState<Validity>(Validity.UNDETERMINED);
   const [password, setPassword] = useState<string>('');
@@ -54,24 +54,24 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
   // ---------------------
 
   const userIdCaption: string = useMemo(() => {
-    return getUserIdCaption(signUpType, userCountry);
-  }, [signUpType, userCountry]);
+    return getUserIdCaption(signInType, userCountry);
+  }, [signInType, userCountry]);
   // ---------------------
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: i18n.t('signup.title.main')
+      title: i18n.t('signIn.title.main')
     });
   }, [navigation]);
   // ---------------------
 
   useEffect(() => {
-    if (signUpType === SignUpType.EMAIL) {
+    if (signInType === SignInType.EMAIL) {
       setUserIdValidity(validateEmail(userId));
     } else {
       setUserIdValidity(validateUserName(userId, userCountry));
     }
-  }, [signUpType, userId, userCountry]);
+  }, [signInType, userId, userCountry]);
   // ---------------------
 
   useEffect(() => {
@@ -88,10 +88,10 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
   }, [dispatch]);
   // ---------------------
 
-  const onSignUpTypeChange = useCallback((event: NativeSyntheticEvent<NativeSegmentedControlIOSChangeEvent>) => {
+  const onSignInTypeChange = useCallback((event: NativeSyntheticEvent<NativeSegmentedControlIOSChangeEvent>) => {
     setUserId('');
     setUserIdValidity(Validity.UNDETERMINED);
-    setSignUpType(event.nativeEvent.selectedSegmentIndex === 0 ? SignUpType.EMAIL : SignUpType.USERNAME);
+    setSignInType(event.nativeEvent.selectedSegmentIndex === 0 ? SignInType.EMAIL : SignInType.USERNAME);
   }, []);
   // ---------------------
 
@@ -165,11 +165,11 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
         onChange={onUserCountryChange}
         enabled={!isLoading} />
 
-      {/** SignUp Type */}
+      {/** SignIn Type */}
       <SegmentedControl
-        values={[i18n.t('signup.label.email'), i18n.t('signup.label.userName')]}
-        selectedIndex={signUpType === SignUpType.EMAIL ? 0 : 1}
-        onChange={onSignUpTypeChange}
+        values={[i18n.t('signIn.label.email'), i18n.t('signIn.label.userName')]}
+        selectedIndex={signInType === SignInType.EMAIL ? 0 : 1}
+        onChange={onSignInTypeChange}
         enabled={!isLoading} />
 
       {/** Form Content */}
@@ -184,9 +184,9 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
               value={userId}
               onChangeText={setUserId}
               onSubmitEditing={onUserIdSubmit}
-              placeholder={i18n.t(signUpType === SignUpType.EMAIL ? 'signup.label.email' : 'signup.label.userName')}
-              keyboardType={signUpType === SignUpType.EMAIL ? 'email-address' : 'default'}
-              textContentType={signUpType === SignUpType.EMAIL ? 'emailAddress' : 'username'}
+              placeholder={i18n.t(signInType === SignInType.EMAIL ? 'signIn.label.email' : 'signIn.label.userName')}
+              keyboardType={signInType === SignInType.EMAIL ? 'email-address' : 'default'}
+              textContentType={signInType === SignInType.EMAIL ? 'emailAddress' : 'username'}
               returnKeyType="next"
               autoCapitalize="none"
               numberOfLines={1}
@@ -216,7 +216,6 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
               ref={passwordInputRef}
               value={password}
               onChangeText={setPassword}
-              onSubmitEditing={signUp}
               placeholder="Password"
               textContentType="password"
               returnKeyType="go"
@@ -238,7 +237,7 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
             variant="caption"
             color={passwordValidity === Validity.INVALID ? 'error' : 'text2'}
             testID="passwordCaption">
-            {i18n.t('signup.message.passwordCaption')}
+            {i18n.t('signIn.message.passwordCaption')}
           </Text>
 
         </View>
@@ -248,7 +247,7 @@ export const SignUpScreen = (props: SignUpScreenProps): React.JSX.Element => {
       {/** SignUp Button */}
       <Pressable onPress={signUp} disabled={isLoading} style={signUpButtonStyle} testID="signUpButton">
         <View style={signUpButtonInnerStyle}>
-          {!isLoading && <Text color="white">{i18n.t('signup.label.signUpButton')}</Text>}
+          {!isLoading && <Text color="white">{i18n.t('signIn.label.signUp')}</Text>}
           {isLoading && <ActivityIndicator size="small" color={theme.white} />}
         </View>
       </Pressable>

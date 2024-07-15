@@ -1,15 +1,15 @@
-import { SignUpScreen, SignUpScreenProps, SignUpScreenParams } from './signup/signup.screen';
+import { SignInScreen, SignInScreenProps, SignInScreenParams } from './sign-in/sign-in.screen';
 import { DashboardScreen, DashboardScreenProps, DashboardScreenParams } from './dashboard/dashboard.screen';
 
 export {
-  SignUpScreen,
+  SignInScreen,
   DashboardScreen
 };
 // ----------------------
 
 export type {
-  SignUpScreenProps,
-  SignUpScreenParams,
+  SignInScreenProps,
+  SignInScreenParams,
   DashboardScreenProps,
   DashboardScreenParams
 };

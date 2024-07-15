@@ -19,8 +19,8 @@ const translations: TranslationObject = {
   },
   /** *************************************** */
 
-  /** SignUp ********************************* */
-  signup: {
+  /** SignIn ********************************* */
+  signIn: {
     title: {
       main: 'S\'inscrire'
     },
@@ -28,7 +28,7 @@ const translations: TranslationObject = {
       email: 'Email',
       userName: 'Nom d\'utilisateur',
       password: 'Mot de passe',
-      signUpButton: 'Inscrivez-moi!'
+      signUp: 'S\'inscrire'
     },
     message: {
       emailCaption: 'Votre adresse e-mail.',

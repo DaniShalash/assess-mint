@@ -6,9 +6,9 @@ import { UserCountry, userCountryThemeMap } from '@assessmint/core';
 
 import { RootStack, ScreenRoute } from '@navigation';
 
-import { SignUpScreen } from '@screens';
+import { SignInScreen } from '@screens';
 
-describe('SignupScreen', () => {
+describe('SignInScreen', () => {
 
   let screen: React.JSX.Element;
   // ---------------------
@@ -16,8 +16,8 @@ describe('SignupScreen', () => {
   beforeEach(() => {
     screen = (
       <RootStack.Screen
-        name={ScreenRoute.SIGNUP_SCREEN}
-        component={SignUpScreen} />
+        name={ScreenRoute.SIGNIN_SCREEN}
+        component={SignInScreen} />
     );
   });
   // ---------------------
@@ -46,7 +46,7 @@ describe('SignupScreen', () => {
   });
   // ---------------------
 
-  it('triggers sign up button callback and causes input cpations to get highlighted', () => {
+  it('triggers signUp button callback and causes input cpations to get highlighted', () => {
     const { getByTestId } = renderScreen(screen);
     const userIdCaption = getByTestId('userIdCaption');
     const passwordCaption = getByTestId('passwordCaption');

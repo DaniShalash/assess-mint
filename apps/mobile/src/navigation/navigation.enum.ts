@@ -4,7 +4,7 @@ export enum NavigationStackID {
 // ----------------------
 
 export enum ScreenRoute {
-  SIGNUP_SCREEN = 'signup_screen',
+  SIGNIN_SCREEN = 'signin_screen',
   DASHBOARD_SCREEN = 'dashboard_screen'
 }
 // -----------------------------------------------------------------------
