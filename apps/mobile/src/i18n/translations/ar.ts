@@ -65,7 +65,11 @@ const translations: TranslationObject = {
       main: 'الرئيسية'
     },
     label: {
-
+      userId: 'معرف المستخدم',
+      showUserId: 'عرض معرف المستخدم'
+    },
+    message: {
+      userIdNotFound: 'لم يتم العثور على معرف المستخدم.'
     }
   }
   /** *************************************** */

@@ -65,7 +65,11 @@ const translations: TranslationObject = {
       main: 'Tableau de bord'
     },
     label: {
-
+      userId: 'Identifiant utilisateur',
+      showUserId: 'Afficher l\'identifiant utilisateur'
+    },
+    message: {
+      userIdNotFound: 'Identifiant utilisateur non trouvé. Cela ne devrait pas arriver :|'
     }
   }
   /** *************************************** */

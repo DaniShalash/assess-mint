@@ -65,7 +65,11 @@ const translations = {
       main: 'Dashboard'
     },
     label: {
-
+      userId: 'User ID',
+      showUserId: 'Show User ID'
+    },
+    message: {
+      userIdNotFound: 'User ID not found. This should not happen :|'
     }
   }
   /** *************************************** */

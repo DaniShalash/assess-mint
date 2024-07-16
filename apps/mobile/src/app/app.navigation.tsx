@@ -38,8 +38,8 @@ export const AppNavigation = (): React.JSX.Element => {
       colors: {
         primary: theme.primary,
         background: theme.background,
-        card: theme.background,
-        text: theme.text,
+        card: theme.primary,
+        text: theme.white,
         border: theme.background,
         notification: theme.secondary
       }
