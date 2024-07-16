@@ -8832,6 +8832,7 @@ __metadata:
     react: 18.2.0
     react-native: 0.74.3
     react-native-keyboard-manager: ^6.5.16-0
+    react-native-keychain: ^8.2.0
     react-native-localize: ^3.2.0
     react-native-reanimated: ^3.14.0
     react-native-restart: ^0.0.27
@@ -9897,6 +9898,13 @@ __metadata:
   peerDependencies:
     react-native: ">=0.60"
   checksum: 50128899c533fe46e5817b8f2b3c71312e421b042d48ba8a5343af0fe7c72eaabbe302ab51029db4db7793718ec096f1f6b1db70cee3bc857b3e916f70eae867
+  languageName: node
+  linkType: hard
+
+"react-native-keychain@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "react-native-keychain@npm:8.2.0"
+  checksum: 4c4d5331013b8ab17c21120a2388e1e82aa30586738c0a34ed9dcffb6ce12454125ddb690951cad5563c9290b060eb68ccffa9477650cc3a5ddc347696b5d4ef
   languageName: node
   linkType: hard
 

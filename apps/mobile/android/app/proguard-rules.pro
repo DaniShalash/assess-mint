@@ -8,3 +8,9 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+# Required by react-native-keychain
+# https://github.com/oblador/react-native-keychain?tab=readme-ov-file#proguard-rules
+-keep class com.facebook.crypto.** {
+   *;
+}

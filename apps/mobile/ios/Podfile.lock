@@ -1175,6 +1175,8 @@ PODS:
     - IQKeyboardManagerSwift (= 6.5.16)
     - React-Core
     - React-RCTText
+  - RNKeychain (8.2.0):
+    - React-Core
   - RNLocalize (3.2.0):
     - React-Core
   - RNReanimated (3.14.0):
@@ -1305,6 +1307,7 @@ DEPENDENCIES:
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeKeyboardManager (from `../node_modules/react-native-keyboard-manager`)
+  - RNKeychain (from `../node_modules/react-native-keychain`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -1434,6 +1437,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeKeyboardManager:
     :path: "../node_modules/react-native-keyboard-manager"
+  RNKeychain:
+    :path: "../node_modules/react-native-keychain"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
   RNReanimated:
@@ -1509,6 +1514,7 @@ SPEC CHECKSUMS:
   React-utils: a06061b3887c702235d2dac92dacbd93e1ea079e
   ReactCommon: f00e436b3925a7ae44dfa294b43ef360fbd8ccc4
   ReactNativeKeyboardManager: 704d89bde3cb1e0f432bc273a44eec96eab9d90f
+  RNKeychain: bfe3d12bf4620fe488771c414530bf16e88f3678
   RNLocalize: b77875884750cb6a58cd6865863fe2ba2729b72b
   RNReanimated: f4ff116e33e0afc3d127f70efe928847c7c66355
   RNScreens: 5aeecbb09aa7285379b6e9f3c8a3c859bb16401c

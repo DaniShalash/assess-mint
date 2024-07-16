@@ -19,7 +19,7 @@ const translations: TranslationObject = {
   },
   /** *************************************** */
 
-  /** Errors ********************************* */
+  /** Errors ******************************** */
   error: {
     message: {
       generic: 'Quelque chose s\'est mal passé.',
@@ -28,7 +28,15 @@ const translations: TranslationObject = {
   },
   /** *************************************** */
 
-  /** SignIn ********************************* */
+  /** Biometrics **************************** */
+  biometrics: {
+    prompt: {
+      userId: 'Authentifiez-vous pour accéder à vos informations.'
+    }
+  },
+  /** *************************************** */
+
+  /** SignIn ******************************** */
   signIn: {
     title: {
       main: 'S\'inscrire'

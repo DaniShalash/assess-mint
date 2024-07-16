@@ -19,7 +19,7 @@ const translations = {
   },
   /** *************************************** */
 
-  /** Errors ********************************* */
+  /** Errors ******************************** */
   error: {
     message: {
       generic: 'Something went wrong.',
@@ -28,7 +28,15 @@ const translations = {
   },
   /** *************************************** */
 
-  /** SignIn ********************************* */
+  /** Biometrics **************************** */
+  biometrics: {
+    prompt: {
+      userId: 'Authenticate to access your information.'
+    }
+  },
+  /** *************************************** */
+
+  /** SignIn ******************************** */
   signIn: {
     title: {
       main: 'Sign In'

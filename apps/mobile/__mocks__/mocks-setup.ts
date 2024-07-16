@@ -23,6 +23,7 @@ require('react-native-reanimated').setUpTests();
  */
 const mockedRNLocalize = RNLocalizeMocks;
 jest.mock('react-native-localize', () => mockedRNLocalize);
+// ---------------------
 
 /**
  * Security Service
@@ -35,6 +36,7 @@ jest.mock('@services/security/security.service', () => ({
     };
   }
 }));
+// ---------------------
 
 /**
  * Splash Screen Service
@@ -46,6 +48,16 @@ jest.mock('@services/splash-screen/splash-screen.service', () => ({
     };
   }
 }));
+// ---------------------
+
+/**
+ * Secure Storage Service
+ */
+jest.mock('@services/secure-storage/secure-storage.service', () => ({
+  setUserId: jest.fn().mockResolvedValue(true),
+  getUserId: jest.fn().mockResolvedValue('Dani123')
+}));
+// ---------------------
 
 /**
  * Auth Service
