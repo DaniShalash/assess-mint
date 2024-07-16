@@ -10,6 +10,7 @@ const config: Config = {
     'jest-runner'
   ],
   setupFilesAfterEnv: [
+    './jest.setup.ts',
     './__mocks__/mocks-setup.ts'
   ]
 };

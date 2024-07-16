@@ -21,6 +21,7 @@
     "sourceMap": true,
     "baseUrl": "./src",
     "paths": {
+      "@enums/*": ["enums/*"],
       "@models/*": ["models/*"]
     }
   },

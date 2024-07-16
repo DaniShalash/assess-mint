@@ -1,4 +1,3 @@
-import '@testing-library/react-native/extend-expect';
 import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock';
 import * as RNLocalizeMocks from 'react-native-localize/mock';
 

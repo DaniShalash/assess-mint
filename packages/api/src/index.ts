@@ -1,3 +1,6 @@
+export { APIErrorCode } from '@enums/error-code.enum';
+// ----------------------
+
 export type {
   SignUpRequest,
   SignUpResponse
@@ -9,4 +12,6 @@ export type {
   LoginResponse
 } from '@models/login.model';
 // ----------------------
+
+export type { APIErrorDetails } from '@models/error-details.model';
 // ------------------------------------------------------------------------------------------
