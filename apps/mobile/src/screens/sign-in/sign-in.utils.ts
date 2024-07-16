@@ -1,5 +1,6 @@
 import {
   userNameRuleCountryMap,
+  UserIdType,
   UserCountry,
   UserNameRule,
   UserNameComposition
@@ -7,14 +8,15 @@ import {
 
 import { i18n, TranslationOptions } from '@i18n';
 
-export enum SignInType {
-  EMAIL = 0,
-  USERNAME = 1
+export enum LoadingState {
+  NONE = 0,
+  SIGNUP = 1,
+  LOGIN = 2
 }
 // ----------------------
 
-export const getUserIdCaption = (signInType: SignInType, userCountry: UserCountry): string => {
-  if (signInType === SignInType.EMAIL) {
+export const getUserIdCaption = (userIdType: UserIdType, userCountry: UserCountry): string => {
+  if (userIdType === UserIdType.EMAIL) {
     return i18n.t('signIn.message.emailCaption');
   }
   const userNameRule: UserNameRule = userNameRuleCountryMap[userCountry];

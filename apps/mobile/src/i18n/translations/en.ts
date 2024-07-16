@@ -23,7 +23,7 @@ const translations = {
   error: {
     message: {
       generic: 'Something went wrong.',
-      wrongCredentials: 'Invalid email/username or password.'
+      wrongCredentials: 'Wrong email/username or password.'
     }
   },
   /** *************************************** */

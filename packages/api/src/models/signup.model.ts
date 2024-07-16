@@ -1,8 +1,9 @@
-import { UserCountry } from '@assessmint/core';
+import { UserCountry, UserIdType } from '@assessmint/core';
 
 export type SignUpRequest = {
   userId: string;
   password: string;
+  userIdType: UserIdType;
   userCountry: UserCountry;
 };
 // ----------------------

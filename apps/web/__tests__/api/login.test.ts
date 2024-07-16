@@ -15,7 +15,7 @@ describe('Login API', () => {
   it('should return error details with status 401', async () => {
     const request = {
       json: async (): Promise<LoginRequest> => ({
-        userId: 'testUser',
+        userId: 'test@email.com',
         password: 'testPassword',
         userCountry: UserCountry.UAE
       })

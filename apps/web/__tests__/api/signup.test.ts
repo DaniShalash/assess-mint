@@ -1,7 +1,11 @@
 /**
  * @jest-environment node
  */
-import { UserCountry } from '@assessmint/core';
+import {
+  UserCountry,
+  UserIdType
+} from '@assessmint/core';
+
 import {
   APIErrorDetails,
   APIErrorCode,
@@ -16,8 +20,9 @@ describe('SignUp API', () => {
   it('should return jwt with status 200', async () => {
     const request = {
       json: async (): Promise<SignUpRequest> => ({
-        userId: 'testUser',
+        userId: 'test@email.com',
         password: 'testPassword',
+        userIdType: UserIdType.EMAIL,
         userCountry: UserCountry.UAE
       })
     } as Request;
@@ -33,6 +38,7 @@ describe('SignUp API', () => {
       json: async (): Promise<SignUpRequest> => ({
         userId: '',
         password: 'testPassword',
+        userIdType: UserIdType.EMAIL,
         userCountry: UserCountry.UAE
       })
     } as Request;

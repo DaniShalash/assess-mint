@@ -1,6 +1,8 @@
 import {
   Validity,
+  UserIdType,
   UserCountry,
+  validateEmail,
   validateUserName
 } from '@assessmint/core';
 
@@ -29,10 +31,23 @@ export const POST = async (request: Request): Promise<Response> => {
      * on defined schemas, using libraries like zod or hopJoi, etc..
      * But this is out of the scope of this project.
      */
-    if (!requestBody.userId || !requestBody.password || !requestBody.userCountry) {
+    if (!requestBody.userId || !requestBody.password || !requestBody.userIdType || !requestBody.userCountry) {
       return new Response(JSON.stringify({
         code: APIErrorCode.INVALID_PARAMETERS,
         message: 'Missing required fields'
+      } satisfies APIErrorDetails), {
+        status: 400
+      });
+    }
+    // ---------------------
+
+    /**
+     * Validating user ID type.
+     */
+    if (!Object.values(UserIdType).includes(requestBody.userIdType)) {
+      return new Response(JSON.stringify({
+        code: APIErrorCode.INVALID_PARAMETERS,
+        message: 'Invalid user ID type'
       } satisfies APIErrorDetails), {
         status: 400
       });
@@ -53,13 +68,17 @@ export const POST = async (request: Request): Promise<Response> => {
     // ---------------------
 
     /**
-     * Validating userName base on country.
+     * Validating email or userName based on country.
      */
-    const userNameValidity: Validity = validateUserName(requestBody.userId, requestBody.userCountry);
+    const userNameValidity: Validity = (
+      requestBody.userIdType === UserIdType.EMAIL ?
+      validateEmail(requestBody.userId) :
+      validateUserName(requestBody.userId, requestBody.userCountry)
+    );
     if (userNameValidity !== Validity.VALID) {
       return new Response(JSON.stringify({
         code: APIErrorCode.INVALID_PARAMETERS,
-        message: 'Invalid username'
+        message: 'Invalid userId'
       } satisfies APIErrorDetails), {
         status: 400
       });

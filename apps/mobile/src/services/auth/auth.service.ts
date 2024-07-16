@@ -1,6 +1,8 @@
 import { MintError } from '@assessmint/core';
 
 import {
+  APIErrorCode,
+  APIErrorDetails,
   SignUpRequest,
   SignUpResponse,
   LoginRequest,
@@ -19,18 +21,21 @@ import { i18n } from '@i18n';
 class Authentication {
 
   private readonly tag: string = 'AuthService';
-  private readonly baseUrl: string = '<https://no-defined.yet>'; // **TODO**: Define the base URL
+  private readonly baseUrl: string = (
+    // 'http://localhost:3000/'
+    'https://rattler-innocent-wildcat.ngrok-free.app/'
+  );
 
   public constructor() {}
 
   // Public Methods --------------------------------------------------------
   public async signUp(request: SignUpRequest): Promise<SignUpResponse> {
-    return await this.post('auth/login', request);
+    return await this.post('api/auth/signup', request);
   }
   // ---------------------
 
   public async login(request: LoginRequest): Promise<LoginResponse> {
-    return await this.post('auth/login', request);
+    return await this.post('api/auth/login', request);
   }
   // -----------------------------------------------------------------------
 
@@ -50,16 +55,7 @@ class Authentication {
           tag: this.tag,
           code: response.status,
           reason: response.statusText,
-          /**
-           * @ReviewTeam
-           * User message could be interpreted in a better way of course,
-           * but I barely have time to do so :)
-           */
-          userMessage: (
-            response.status === 401 ?
-            i18n.t('error.message.wrongCredentials') :
-            i18n.t('error.message.generic')
-          ),
+          userMessage: await this.userMessageForError(response),
           extra: { urlPath: path }
         });
       }
@@ -71,6 +67,22 @@ class Authentication {
         reason: error?.message || 'Failed to post data',
         extra: { urlPath: path }
       });
+    }
+  }
+  // -----------------------------------------------------------------------
+
+  // Helpers ---------------------------------------------------------------
+  private async userMessageForError(response: Response): Promise<string> {
+    try {
+      const responseBody: APIErrorDetails = await response.json();
+      switch (responseBody?.code) {
+        case APIErrorCode.INVALID_CREDENTIALS:
+          return i18n.t('error.message.wrongCredentials');
+        default:
+          return i18n.t('error.message.generic');
+      }
+    } catch {
+      return i18n.t('error.message.generic');
     }
   }
   // -----------------------------------------------------------------------

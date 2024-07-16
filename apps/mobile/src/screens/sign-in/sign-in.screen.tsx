@@ -1,12 +1,15 @@
 import React, { useEffect, useLayoutEffect, useState, useCallback, useMemo, useRef } from 'react';
 import { StyleSheet, View, ScrollView, TextInput, ActivityIndicator, NativeSyntheticEvent, TextStyle } from 'react-native';
 import SegmentedControl, { NativeSegmentedControlIOSChangeEvent } from '@react-native-segmented-control/segmented-control';
+import ReAnimated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {
+  MintError,
   validateEmail,
   validatePassword,
   validateUserName,
+  UserIdType,
   UserCountry,
   Validity
 } from '@assessmint/core';
@@ -17,9 +20,11 @@ import { useTheme } from '@providers';
 
 import { Background, Text, textVariants, Pressable } from '@components/basic';
 
+import { AuthSagas } from '@sagas';
+
 import { i18n } from '@i18n';
 
-import { getUserIdCaption, SignInType } from './sign-in.utils';
+import { getUserIdCaption, LoadingState } from './sign-in.utils';
 
 type NavigationProps = RootStackNavigationProps<ScreenRoute.SIGNIN_SCREEN>;
 
@@ -33,13 +38,14 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
   // ---------------------
 
   const [userCountry, setUserCountry] = useState<UserCountry>(UserCountry.UAE);
-  const [signInType, setSignInType] = useState<number>(SignInType.EMAIL);
+  const [userIdType, setUserIdType] = useState<UserIdType>(UserIdType.EMAIL);
   const [userId, setUserId] = useState<string>('');
   const [userIdValidity, setUserIdValidity] = useState<Validity>(Validity.UNDETERMINED);
   const [password, setPassword] = useState<string>('');
   const [passwordValidity, setPasswordValidity] = useState<Validity>(Validity.UNDETERMINED);
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [loadingState, setLoadingState] = useState<LoadingState>(LoadingState.NONE);
+  const [signInError, setSignInError] = useState<string | undefined>(undefined);
   // ---------------------
 
   const theme = useTheme();
@@ -48,9 +54,12 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
   const passwordInputRef = useRef<TextInput>(null);
   // ---------------------
 
+  const isLoading: boolean = loadingState !== LoadingState.NONE;
+  // ---------------------
+
   const userIdCaption: string = useMemo(() => {
-    return getUserIdCaption(signInType, userCountry);
-  }, [signInType, userCountry]);
+    return getUserIdCaption(userIdType, userCountry);
+  }, [userIdType, userCountry]);
   // ---------------------
 
   useLayoutEffect(() => {
@@ -61,12 +70,12 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
   // ---------------------
 
   useEffect(() => {
-    if (signInType === SignInType.EMAIL) {
+    if (userIdType === UserIdType.EMAIL) {
       setUserIdValidity(validateEmail(userId));
     } else {
       setUserIdValidity(validateUserName(userId, userCountry));
     }
-  }, [signInType, userId, userCountry]);
+  }, [userIdType, userId, userCountry]);
   // ---------------------
 
   useEffect(() => {
@@ -83,10 +92,10 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
   }, []);
   // ---------------------
 
-  const onSignInTypeChange = useCallback((event: NativeSyntheticEvent<NativeSegmentedControlIOSChangeEvent>) => {
+  const onUserIdTypeChange = useCallback((event: NativeSyntheticEvent<NativeSegmentedControlIOSChangeEvent>) => {
     setUserId('');
     setUserIdValidity(Validity.UNDETERMINED);
-    setSignInType(event.nativeEvent.selectedSegmentIndex === 0 ? SignInType.EMAIL : SignInType.USERNAME);
+    setUserIdType(event.nativeEvent.selectedSegmentIndex === 0 ? UserIdType.EMAIL : UserIdType.USERNAME);
   }, []);
   // ---------------------
 
@@ -110,18 +119,32 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
   }, [userIdValidity, passwordValidity]);
   // ---------------------
 
-  const signUp = useCallback(() => {
+  const signUp = useCallback(async () => {
     if (!validateCredentials()) return;
-    setIsLoading(true);
-    // **TODO**
-  }, [validateCredentials]);
+    setLoadingState(LoadingState.SIGNUP);
+    setSignInError(undefined);
+    try {
+      await AuthSagas.signUpSaga(userId, password, userIdType, userCountry);
+    } catch (error: unknown) {
+      const errorMessage: string | undefined = MintError.isInstance(error) ? error.userMessage : undefined;
+      setSignInError(errorMessage || i18n.t('error.message.generic'));
+      setLoadingState(LoadingState.NONE);
+    }
+  }, [validateCredentials, userId, password, userIdType, userCountry]);
   // ---------------------
 
-  const login = useCallback(() => {
+  const login = useCallback(async () => {
     if (!validateCredentials()) return;
-    setIsLoading(true);
-    // **TODO**
-  }, [validateCredentials]);
+    setLoadingState(LoadingState.LOGIN);
+    setSignInError(undefined);
+    try {
+      await AuthSagas.loginSaga(userId, password, userCountry);
+    } catch (error: unknown) {
+      const errorMessage: string | undefined = MintError.isInstance(error) ? error.userMessage : undefined;
+      setSignInError(errorMessage || i18n.t('error.message.generic'));
+      setLoadingState(LoadingState.NONE);
+    }
+  }, [validateCredentials, userId, password, userCountry]);
   // ---------------------
 
   const inputStyle: TextStyle = {
@@ -157,8 +180,8 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
       {/** SignIn Type */}
       <SegmentedControl
         values={[i18n.t('signIn.label.email'), i18n.t('signIn.label.userName')]}
-        selectedIndex={signInType === SignInType.EMAIL ? 0 : 1}
-        onChange={onSignInTypeChange}
+        selectedIndex={userIdType === UserIdType.EMAIL ? 0 : 1}
+        onChange={onUserIdTypeChange}
         enabled={!isLoading} />
 
       {/** Form Content */}
@@ -173,9 +196,9 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
               value={userId}
               onChangeText={setUserId}
               onSubmitEditing={onUserIdSubmit}
-              placeholder={i18n.t(signInType === SignInType.EMAIL ? 'signIn.label.email' : 'signIn.label.userName')}
-              keyboardType={signInType === SignInType.EMAIL ? 'email-address' : 'default'}
-              textContentType={signInType === SignInType.EMAIL ? 'emailAddress' : 'username'}
+              placeholder={i18n.t(userIdType === UserIdType.EMAIL ? 'signIn.label.email' : 'signIn.label.userName')}
+              keyboardType={userIdType === UserIdType.EMAIL ? 'email-address' : 'default'}
+              textContentType={userIdType === UserIdType.EMAIL ? 'emailAddress' : 'username'}
               returnKeyType="next"
               autoCapitalize="none"
               numberOfLines={1}
@@ -231,6 +254,15 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
 
         </View>
 
+        {/** Error View */}
+        <View style={styles.errorContainer}>
+          {Boolean(signInError) && (
+            <ReAnimated.View entering={FadeIn} exiting={FadeOut}>
+              <Text variant="caption" color="error">{signInError}</Text>
+            </ReAnimated.View>
+          )}
+        </View>
+
       </View>
 
       {/** Buttons */}
@@ -238,17 +270,17 @@ export const SignInScreen = (props: SignInScreenProps): React.JSX.Element => {
 
         {/** SignUp */}
         <Pressable onPress={signUp} disabled={isLoading} style={styles.buttonFlex} testID="signUpButton">
-          <Background color="primary" style={styles.button}>
-            {!isLoading && <Text color="white">{i18n.t('signIn.label.signUp')}</Text>}
-            {isLoading && <ActivityIndicator size="small" color={theme.white} />}
+          <Background color={isLoading ? 'disabled' : 'primary'} style={styles.button}>
+            {loadingState !== LoadingState.SIGNUP && <Text color="white">{i18n.t('signIn.label.signUp')}</Text>}
+            {loadingState === LoadingState.SIGNUP && <ActivityIndicator size="small" color={theme.white} />}
           </Background>
         </Pressable>
 
         {/** Login */}
         <Pressable onPress={login} disabled={isLoading} style={styles.buttonFlex} testID="loginButton">
           <View style={styles.button}>
-            {!isLoading && <Text color="secondary">{i18n.t('signIn.label.login')}</Text>}
-            {isLoading && <ActivityIndicator size="small" color={theme.secondary} />}
+            {loadingState !== LoadingState.LOGIN && <Text color={isLoading ? 'disabled' : 'secondary'}>{i18n.t('signIn.label.login')}</Text>}
+            {loadingState === LoadingState.LOGIN && <ActivityIndicator size="small" color={isLoading ? theme.disabled : theme.secondary} />}
           </View>
         </Pressable>
 
@@ -301,11 +333,14 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     paddingHorizontal: 16
   },
+  errorContainer: {
+    height: 16
+  },
   buttonsContainer: {
     flexDirection: 'column',
     alignItems: 'stretch',
     justifyContent: 'center',
-    marginVertical: 16,
+    marginTop: 8,
     gap: 8
   },
   buttonFlex: {

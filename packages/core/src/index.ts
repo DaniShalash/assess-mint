@@ -13,6 +13,9 @@ export type { UserNameRuleCountryMap } from '@models/user-name-rule-country-map.
 export { UserCountry } from '@enums/user-country.enum';
 // ----------------------
 
+export { UserIdType } from '@enums/user-id-type.enum';
+// ----------------------
+
 export { UserNameComposition } from '@enums/user-name-composition.enum';
 // ----------------------
 

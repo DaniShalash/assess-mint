@@ -23,7 +23,7 @@ const translations: TranslationObject = {
   error: {
     message: {
       generic: 'حدث خطأ ما.',
-      wrongCredentials: 'البريد الإلكتروني/اسم المستخدم أو كلمة المرور غير صحيحة.'
+      wrongCredentials: 'البريد الإلكتروني/اسم المستخدم أو كلمة المرور خاطئة.'
     }
   },
   /** *************************************** */

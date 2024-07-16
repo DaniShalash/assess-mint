@@ -1,4 +1,4 @@
-import { UserCountry } from '@assessmint/core';
+import { UserCountry, UserIdType } from '@assessmint/core';
 
 import {
   SignUpRequest,
@@ -9,15 +9,16 @@ import {
 
 import { Store, AuthActions, UserActions } from '@store';
 
-import { AuthService } from '@services';
+import { AuthService, SecureStorageService } from '@services';
 
-const signUpSaga = async (userId: string, password: string, userCountry: UserCountry): Promise<void> => {
+const signUpSaga = async (userId: string, password: string, userIdType: UserIdType, userCountry: UserCountry): Promise<void> => {
   const response: SignUpResponse = await AuthService.signUp({
     userId,
     password,
+    userIdType,
     userCountry
   } satisfies SignUpRequest);
-  // **TODO** Set userID in a SecureStorage.
+  await SecureStorageService.setUserId(userId);
   Store.dispatch(AuthActions.setJwt(response.jwt));
   Store.dispatch(UserActions.setCountry(userCountry));
 };
@@ -29,7 +30,7 @@ const loginSaga = async (userId: string, password: string, userCountry: UserCoun
     password,
     userCountry
   } satisfies LoginRequest);
-  // **TODO** Set userID in a SecureStorage.
+  await SecureStorageService.setUserId(userId);
   Store.dispatch(AuthActions.setJwt(response.jwt));
   Store.dispatch(UserActions.setCountry(userCountry));
 };

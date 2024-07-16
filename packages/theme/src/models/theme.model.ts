@@ -7,6 +7,7 @@ export type Theme = {
   success: string;
   warning: string;
   error: string;
+  disabled: string;
   text: string;
   text2: string;
   background: string;
@@ -16,5 +17,5 @@ export type Theme = {
 };
 // ----------------------
 
-export type ThemeColor = keyof Theme;
+export type ThemeColor = keyof Omit<Theme, 'type'>;
 // ------------------------------------------------------------------------------------------

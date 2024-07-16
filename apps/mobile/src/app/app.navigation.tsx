@@ -59,7 +59,8 @@ export const AppNavigation = (): React.JSX.Element => {
               component={SignInScreen}
               options={{
                 headerLargeTitle: true,
-                headerShadowVisible: false
+                headerShadowVisible: false,
+                animation: 'fade_from_bottom'
               }} />
 
           </React.Fragment>

@@ -49,7 +49,7 @@ export const POST = async (request: Request): Promise<Response> => {
     // ---------------------
 
     /**
-     * I do NOT Validate userName because if it already made it to the "DB",
+     * I do NOT Validate userId/Email because if it already made it to the "DB",
      * then it is already validated after signup.
      */
     // ---------------------
