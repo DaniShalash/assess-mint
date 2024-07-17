@@ -13,6 +13,7 @@
     "@assessmint/api": "workspace:^",
     "@assessmint/core": "workspace:^",
     "@assessmint/theme": "workspace:^",
+    "@notifee/react-native": "^7.8.2",
     "@react-native-segmented-control/segmented-control": "^2.5.2",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.10.0",

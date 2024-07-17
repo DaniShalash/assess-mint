@@ -23,7 +23,26 @@ const translations = {
   error: {
     message: {
       generic: 'Something went wrong.',
-      wrongCredentials: 'Wrong email/username or password.'
+      serverConnection: 'Failed to connect to the server.',
+      wrongCredentials: 'Wrong email/username or password.',
+      accountAlreadyExists: 'Account already exists. Please login.'
+    }
+  },
+  /** *************************************** */
+
+  /** Notifications ************************* */
+  notifications: {
+    signUp: {
+      title: 'Hey there!',
+      body: 'Congratulations! You have successfully created an account with AssessMint'
+    },
+    login: {
+      title: 'Welcome back!',
+      body: 'You have successfully logged-in to AssessMint. Glad you made it this far :)'
+    },
+    logout: {
+      title: 'Goodbye!',
+      body: 'You have successfully logged-out from AssessMint. Hope to see you soon'
     }
   },
   /** *************************************** */
@@ -65,6 +84,7 @@ const translations = {
       main: 'Dashboard'
     },
     label: {
+      logout: 'Logout',
       userId: 'User ID',
       showUserId: 'Show User ID'
     },

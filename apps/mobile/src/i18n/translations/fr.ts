@@ -23,7 +23,26 @@ const translations: TranslationObject = {
   error: {
     message: {
       generic: 'Quelque chose s\'est mal passé.',
-      wrongCredentials: 'Email/nom d\'utilisateur ou mot de passe incorrect.'
+      serverConnection: 'Échec de la connexion au serveur.',
+      wrongCredentials: 'Email/nom d\'utilisateur ou mot de passe incorrect.',
+      accountAlreadyExists: 'Le compte existe déjà. Veuillez vous connecter.'
+    }
+  },
+  /** *************************************** */
+
+  /** Notifications ************************* */
+  notifications: {
+    signUp: {
+      title: 'Salut!',
+      body: 'Félicitations! Vous avez créé un compte avec succès avec AssessMint'
+    },
+    login: {
+      title: 'Bienvenue!',
+      body: 'Vous vous êtes connecté avec succès à AssessMint. Heureux de vous voir arriver jusqu\'ici :)'
+    },
+    logout: {
+      title: 'Au revoir!',
+      body: 'Vous vous êtes déconnecté avec succès d\'AssessMint. Espérons vous revoir bientôt'
     }
   },
   /** *************************************** */
@@ -65,6 +84,7 @@ const translations: TranslationObject = {
       main: 'Tableau de bord'
     },
     label: {
+      logout: 'Déconnexion',
       userId: 'Identifiant utilisateur',
       showUserId: 'Afficher l\'identifiant utilisateur'
     },

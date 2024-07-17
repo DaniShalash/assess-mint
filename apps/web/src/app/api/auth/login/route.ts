@@ -23,7 +23,7 @@ export const POST = async (request: Request): Promise<Response> => {
      * Validating request object.
      * Of course there are better ways to validate requests based
      * on defined schemas, using libraries like zod or hopJoi, etc..
-     * But this is out of the scope of this project.
+     * But this is (API) out of the scope of this project.
      */
     if (!requestBody.userId || !requestBody.password || !requestBody.userCountry) {
       return new Response(JSON.stringify({
@@ -58,6 +58,11 @@ export const POST = async (request: Request): Promise<Response> => {
      * Retrieve data from cache and validate it.
      * No time to setup a DB :)
      * Password is clear text, and not hashed for the above reason as well.
+     * 
+     * @ReviewTeam
+     * There are cases where the cache is lost for some reason, and user account is lost.
+     * I assumed this is completely out of the scope of this assessment and I didn't want to spend time
+     * on checking on it.
      */
     const storedPasssword: string | undefined = CacheInstance.get(requestBody.userId);
     if (!storedPasssword || requestBody.password !== storedPasssword) {

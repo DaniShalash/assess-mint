@@ -8,11 +8,11 @@ import { DashboardScreen } from '@screens';
 
 describe('DashboardScreen', () => {
 
-  let screen: React.JSX.Element;
+  let dashboardScreen: React.JSX.Element;
   // ---------------------
 
   beforeEach(() => {
-    screen = (
+    dashboardScreen = (
       <RootStack.Screen
         name={ScreenRoute.DASHBOARD_SCREEN}
         component={DashboardScreen} />
@@ -21,14 +21,14 @@ describe('DashboardScreen', () => {
   // ---------------------
 
   it('renders correctly', () => {
-    const { getByTestId } = renderScreen(screen);
+    const { getByTestId } = renderScreen(dashboardScreen);
     expect(getByTestId('userIdCard')).toBeTruthy();
     expect(getByTestId('getUserIdButton')).toBeTruthy();
   });
   // ---------------------
 
   it('fetches userId successfully', async () => {
-    const { getByTestId } = renderScreen(screen);
+    const { getByTestId } = renderScreen(dashboardScreen);
     const currentUserIdValue: string = getByTestId('userIdValue').props.children;
     const getUserIdButton = getByTestId('getUserIdButton');
     await act(async () => {

@@ -11,7 +11,8 @@ export const CacheInstance = new NodeCache({
   stdTTL: 0,
   checkperiod: 0,
   useClones: true,
-  maxKeys: -1
+  maxKeys: -1,
+  deleteOnExpire: false
 });
 // ----------------------
 // -----------------------------------------------------------------------

@@ -10,11 +10,11 @@ import { SignInScreen } from '@screens';
 
 describe('SignInScreen', () => {
 
-  let screen: React.JSX.Element;
+  let signInScreen: React.JSX.Element;
   // ---------------------
 
   beforeEach(() => {
-    screen = (
+    signInScreen = (
       <RootStack.Screen
         name={ScreenRoute.SIGNIN_SCREEN}
         component={SignInScreen} />
@@ -23,7 +23,7 @@ describe('SignInScreen', () => {
   // ---------------------
 
   it('renders correctly', () => {
-    const { getByTestId } = renderScreen(screen);
+    const { getByTestId } = renderScreen(signInScreen);
     expect(getByTestId('userIdInput')).toBeTruthy();
     expect(getByTestId('passwordInput')).toBeTruthy();
     expect(getByTestId('signUpButton')).toBeTruthy();
@@ -31,7 +31,7 @@ describe('SignInScreen', () => {
   // ---------------------
 
   it('updates the email input value correctly', () => {
-    const { getByTestId } = renderScreen(screen);
+    const { getByTestId } = renderScreen(signInScreen);
     const emailInput = getByTestId('userIdInput');
     fireEvent.changeText(emailInput, 'test@example.com');
     expect(emailInput.props.value).toEqual('test@example.com');
@@ -39,7 +39,7 @@ describe('SignInScreen', () => {
   // ---------------------
 
   it('updates the password input value correctly', () => {
-    const { getByTestId } = renderScreen(screen);
+    const { getByTestId } = renderScreen(signInScreen);
     const passwordInput = getByTestId('passwordInput');
     fireEvent.changeText(passwordInput, 'password123');
     expect(passwordInput.props.value).toEqual('password123');
@@ -47,7 +47,7 @@ describe('SignInScreen', () => {
   // ---------------------
 
   it('triggers login button callback and causes input cpations to get highlighted', () => {
-    const { getByTestId } = renderScreen(screen);
+    const { getByTestId } = renderScreen(signInScreen);
     const userIdCaption = getByTestId('userIdCaption');
     const passwordCaption = getByTestId('passwordCaption');
     const loginButton = getByTestId('loginButton');
@@ -59,7 +59,7 @@ describe('SignInScreen', () => {
   // ---------------------
 
   it('triggers signUp button callback and causes input cpations to get highlighted', () => {
-    const { getByTestId } = renderScreen(screen);
+    const { getByTestId } = renderScreen(signInScreen);
     const userIdCaption = getByTestId('userIdCaption');
     const passwordCaption = getByTestId('passwordCaption');
     const signUpButton = getByTestId('signUpButton');

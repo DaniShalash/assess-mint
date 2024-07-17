@@ -29,7 +29,7 @@ export const POST = async (request: Request): Promise<Response> => {
      * Validating request object.
      * Of course there are better ways to validate requests based
      * on defined schemas, using libraries like zod or hopJoi, etc..
-     * But this is out of the scope of this project.
+     * But this is (API) out of the scope of this project.
      */
     if (!requestBody.userId || !requestBody.password || !requestBody.userIdType || !requestBody.userCountry) {
       return new Response(JSON.stringify({
@@ -84,6 +84,19 @@ export const POST = async (request: Request): Promise<Response> => {
       });
     }
     // ---------------------
+
+    /**
+     * Check if user already exists.
+     */
+    const accountExists: boolean = CacheInstance.has(requestBody.userId);
+    if (accountExists) {
+      return new Response(JSON.stringify({
+        code: APIErrorCode.ACCOUNT_ALREADY_EXISTS,
+        message: 'An account already exists for this user'
+      } satisfies APIErrorDetails), {
+        status: 400
+      });
+    }
 
     /**
      * @ReviewTeam

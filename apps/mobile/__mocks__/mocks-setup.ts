@@ -54,8 +54,27 @@ jest.mock('@services/splash-screen/splash-screen.service', () => ({
  * Secure Storage Service
  */
 jest.mock('@services/secure-storage/secure-storage.service', () => ({
-  setUserId: jest.fn().mockResolvedValue(true),
-  getUserId: jest.fn().mockResolvedValue('Dani123')
+  get SecureStorageService() {
+    return {
+      setUserId: jest.fn().mockResolvedValue(true),
+      getUserId: jest.fn().mockResolvedValue('Dani123'),
+      deleteUserId: jest.fn().mockResolvedValue(undefined)
+    };
+  }
+}));
+// ---------------------
+
+/**
+ * Notifications Service
+ */
+jest.mock('@services/notifications/notifications.service', () => ({
+  get NotificationsService() {
+    return {
+      init: jest.fn().mockResolvedValue(undefined),
+      requestPermission: jest.fn().mockResolvedValue(true),
+      post: jest.fn().mockResolvedValue(undefined)
+    };
+  }
 }));
 // ---------------------
 

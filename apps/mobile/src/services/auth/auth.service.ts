@@ -13,18 +13,15 @@ import { i18n } from '@i18n';
 
 /**
  * @ReviewTeam
- * Obviously, this service belongs to the API package, but ath the time of
- * writing this class, I'm planning to build the API in NextJS app.
+ * Obviously, this service belongs to the API package, but at the time of
+ * writing this class, I'm building the API in NextJS app.
  * If I decided to create another app (Like NestJS) simply to serve this class's
  * purpose, then this should be moved to the API package.
  */
 class Authentication {
 
   private readonly tag: string = 'AuthService';
-  private readonly baseUrl: string = (
-    // 'http://localhost:3000/'
-    'https://rattler-innocent-wildcat.ngrok-free.app/'
-  );
+  private readonly baseUrl: string = 'http://localhost:3000/';
 
   public constructor() {}
 
@@ -65,6 +62,7 @@ class Authentication {
         tag: this.tag,
         code: 1,
         reason: error?.message || 'Failed to post data',
+        userMessage: i18n.t('error.message.serverConnection'),
         extra: { urlPath: path }
       });
     }
@@ -74,10 +72,15 @@ class Authentication {
   // Helpers ---------------------------------------------------------------
   private async userMessageForError(response: Response): Promise<string> {
     try {
+      if (response.status === 404) {
+        return i18n.t('error.message.serverConnection');
+      }
       const responseBody: APIErrorDetails = await response.json();
       switch (responseBody?.code) {
         case APIErrorCode.INVALID_CREDENTIALS:
           return i18n.t('error.message.wrongCredentials');
+        case APIErrorCode.ACCOUNT_ALREADY_EXISTS:
+          return i18n.t('error.message.accountAlreadyExists');
         default:
           return i18n.t('error.message.generic');
       }

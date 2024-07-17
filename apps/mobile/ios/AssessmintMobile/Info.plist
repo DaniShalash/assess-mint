@@ -35,6 +35,8 @@
 	<string>Assessmint will use FaceID to secure your information.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>Assessmint will only send you important updates like authorization activity.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>

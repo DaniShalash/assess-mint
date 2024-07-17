@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState, useCallback } from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 
 import { MintError } from '@assessmint/core';
 
@@ -7,7 +7,7 @@ import { RootStackNavigationProps, ScreenRoute } from '@navigation';
 
 import { Background, Text, Pressable } from '@components/basic';
 
-import { UserSagas } from '@sagas';
+import { AuthSagas, UserSagas } from '@sagas';
 
 import { i18n } from '@i18n';
 
@@ -24,24 +24,32 @@ export const DashboardScreen = (props: DashboardScreenProps): React.JSX.Element 
 
   const [userId, setUserId] = useState<string | undefined>(undefined);
   const [userIdError, setUserIdError] = useState<string | undefined>(undefined);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  // ---------------------
+
+  const logout = useCallback(async () => {
+    setIsLoading(true);
+    AuthSagas.logoutSaga().catch(() => undefined);
+  }, []);
   // ---------------------
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: i18n.t('dashboard.title.main')
+      title: i18n.t('dashboard.title.main'),
+      headerRight: () => (
+        isLoading ?
+        LoadingIndicator() :
+        LogoutButton(logout)
+      )
     });
-  }, [navigation]);
+  }, [navigation, logout, isLoading]);
   // ---------------------
 
   const getUserId = useCallback(async () => {
     try {
       setUserIdError(undefined);
       const result: string | undefined = await UserSagas.getUserIdSaga();
-      if (result) {
-        setUserId(result);
-      } else {
-        setUserIdError(i18n.t('dashboard.message.userIdNotFound'));
-      }
+      setUserId(result);
     } catch (error) {
       const errorMessage: string | undefined = MintError.isInstance(error) ? error.userMessage : undefined;
       setUserIdError(errorMessage || i18n.t('error.message.generic'));
@@ -83,6 +91,18 @@ export const DashboardScreen = (props: DashboardScreenProps): React.JSX.Element 
   // ----------------------------------------------------------------------------------------
 };
 
+const LogoutButton = (onPress: () => any) => (
+  <Pressable style={styles.logoutButton} onPress={onPress} testID="logoutButton">
+    <Text color="white">{i18n.t('dashboard.label.logout')}</Text>
+  </Pressable>
+);
+// ---------------
+
+const LoadingIndicator = () => (
+  <ActivityIndicator size="small" color="white" />
+);
+// -------------------------------------------------------------------------------------------
+
 // Styles ---------------------
 const styles = StyleSheet.create({
   container: {
@@ -113,6 +133,10 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8,
     borderCurve: 'continuous'
+  },
+  logoutButton: {
+    paddingLeft: 8,
+    paddingVertical: 8
   }
 });
 // ------------------------------------------------------------------------------------------

@@ -23,7 +23,26 @@ const translations: TranslationObject = {
   error: {
     message: {
       generic: 'حدث خطأ ما.',
-      wrongCredentials: 'البريد الإلكتروني/اسم المستخدم أو كلمة المرور خاطئة.'
+      serverConnection: 'فشل الاتصال بالخادم.',
+      wrongCredentials: 'البريد الإلكتروني/اسم المستخدم أو كلمة المرور خاطئة.',
+      accountAlreadyExists: 'الحساب موجود بالفعل. يرجى تسجيل الدخول.'
+    }
+  },
+  /** *************************************** */
+
+  /** Notifications ************************* */
+  notifications: {
+    signUp: {
+      title: 'مرحبًا!',
+      body: 'تهانينا! لقد أنشأت حسابًا بنجاح مع AssessMint'
+    },
+    login: {
+      title: 'مرحبًا مجددًا!',
+      body: 'لقد قمت بتسجيل الدخول بنجاح إلى AssessMint. سعداء لوصولك إلى هنا :)'
+    },
+    logout: {
+      title: 'وداعًا!',
+      body: 'لقد قمت بتسجيل الخروج بنجاح من AssessMint. نأمل أن نراك قريبًا'
     }
   },
   /** *************************************** */
@@ -65,6 +84,7 @@ const translations: TranslationObject = {
       main: 'الرئيسية'
     },
     label: {
+      logout: 'تسجيل الخروج',
       userId: 'معرف المستخدم',
       showUserId: 'عرض معرف المستخدم'
     },
