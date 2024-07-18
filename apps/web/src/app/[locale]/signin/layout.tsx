@@ -1,4 +1,7 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+import { getI18n } from '@i18n/server';
 
 import { I18nProviderClient, LanguageCode } from '@i18n/client';
 
@@ -21,5 +24,17 @@ const SignInLayout = (props: Props) => {
   );
   // ----------------------------------------------------------------------------------------
 }
+
+// Metadata ---------------------
+export const generateMetadata = async (): Promise<Metadata> => {
+
+  const t = await getI18n();
+  // ---------------------
+
+  return {
+    title: `${t('common.label.appName')} - ${t('signIn.title.main')}`
+  }
+}
+// ------------------------------------------------------------------------------------------
 
 export default SignInLayout;

@@ -10,7 +10,7 @@ import { UserDetails } from '@models';
 
 import { Cookie } from '@enums';
 
-import { LanguageCode } from '@i18n/server';
+import { getI18n, LanguageCode } from '@i18n/server';
 
 import '@styles/globals.css';
 import '@styles/global-icons.css';
@@ -55,10 +55,15 @@ const RootLayout = async (props: Props) => {
 }
 
 // Metadata ---------------------
-export const metadata: Metadata = {
-  title: 'Assessmint',
-  description: 'Job requirement assessment'
-};
+export const generateMetadata = async (): Promise<Metadata> => {
+
+  const t = await getI18n();
+  // ---------------------
+
+  return {
+    title: t('common.label.appName')
+  }
+}
 // ------------------------------------------------------------------------------------------
 
 export default RootLayout;
