@@ -9,7 +9,7 @@ type Props = {
   }
 };
 
-const HomeLayout = (props: Props) => {
+const DashboardLayout = (props: Props) => {
 
   const { children, params } = props;
   // ---------------------
@@ -22,4 +22,4 @@ const HomeLayout = (props: Props) => {
   // ----------------------------------------------------------------------------------------
 }
 
-export default HomeLayout;
+export default DashboardLayout;

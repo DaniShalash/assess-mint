@@ -8,6 +8,7 @@ import { ThemeProvider } from '@providers';
 import { LanguageCode } from '@i18n/server';
 
 import '@styles/globals.css';
+import '@styles/global-icons.css';
 
 type Props = {
   children: React.ReactNode;

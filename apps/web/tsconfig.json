@@ -17,9 +17,11 @@
       "name": "next"
     }],
     "paths": {
+      "@actions/*": ["./src/actions/*"],
       "@app/*": ["./src/app/*"],
       "@cache": ["./src/cache"],
       "@components": ["./src/components"],
+      "@enums": ["./src/enums"],
       "@i18n/client": ["./src/i18n/client"],
       "@i18n/server": ["./src/i18n/server"],
       "@providers": ["./src/providers"],

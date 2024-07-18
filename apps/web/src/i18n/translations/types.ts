@@ -8,7 +8,4 @@ type NestedKeyOf<ObjectType extends object> = {
 // --------------------
 
 export type TranslationObject = typeof en;
-// --------------------
-
-export type TranslationKey =  NestedKeyOf<TranslationObject>;
 // -----------------------------------------------------------------------

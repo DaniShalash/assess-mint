@@ -1,7 +1,6 @@
 import { createI18nServer } from 'next-international/server';
 
 import { LanguageCode } from './language-code.enum';
-import { TranslationKey } from './translations/types';
 
 const { getI18n, getScopedI18n, getCurrentLocale, getStaticParams } = createI18nServer({
   en: () => import('./translations/en'),
@@ -16,10 +15,5 @@ export {
   getStaticParams,
   getCurrentLocale,
   LanguageCode
-};
-// --------------------
-
-export type {
-  TranslationKey
 };
 // -----------------------------------------------------------------------

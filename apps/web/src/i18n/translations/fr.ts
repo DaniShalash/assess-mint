@@ -8,7 +8,7 @@ const translations: TranslationObject = {
   /** Common ******************************** */
   common: {
     label: {
-      appName: 'AssessMint',
+      appName: 'Mint',
       country: 'Pays'
     },
     language: {
@@ -50,10 +50,10 @@ const translations: TranslationObject = {
     },
     message: {
       emailCaption: 'Votre adresse e-mail.',
-      userNameAlphabeticalNoSpaceXlengthCaption: 'Minimum {{x}} caractères alphabétiques seulement, sans espaces.',
-      userNameAlphanumericNoSpaceXlengthCaption: 'Minimum {{x}} caractères alphanumériques seulement, sans espaces.',
-      userNameStartAlphabetNoSpaceXlengthCaption: 'Commence par une lettre, minimum {{x}} caractères, sans espaces.',
-      userNameSmallAlphabetOnlyNoSpaceXlengthCaption: 'Minimum {{x}} petites lettres seulement, sans espaces.',
+      'userNameAlphabeticalNoSpaceXlengthCaption#other': 'Minimum {count} caractères alphabétiques seulement, sans espaces.',
+      'userNameAlphanumericNoSpaceXlengthCaption#other': 'Minimum {count} caractères alphanumériques seulement, sans espaces.',
+      'userNameStartAlphabetNoSpaceXlengthCaption#other': 'Commence par une lettre, minimum {count} caractères, sans espaces.',
+      'userNameSmallAlphabetOnlyNoSpaceXlengthCaption#other': 'Minimum {count} petites lettres seulement, sans espaces.',
       passwordCaption: 'Mot de passe fort et unique sans espaces.'
     }
   }

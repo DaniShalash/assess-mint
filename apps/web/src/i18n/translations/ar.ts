@@ -8,7 +8,7 @@ const translations: TranslationObject = {
   /** Common ******************************** */
   common: {
     label: {
-      appName: 'أسيسمنت',
+      appName: 'نعنع',
       country: 'البلد'
     },
     language: {
@@ -50,10 +50,10 @@ const translations: TranslationObject = {
     },
     message: {
       emailCaption: 'عنوان بريدك الإلكتروني.',
-      userNameAlphabeticalNoSpaceXlengthCaption: 'على الأقل {{x}} أحرف أبجدية فقط، بدون مسافات.',
-      userNameAlphanumericNoSpaceXlengthCaption: 'على الأقل {{x}} أحرف أبجدية رقمية فقط، بدون مسافات.',
-      userNameStartAlphabetNoSpaceXlengthCaption: 'يبدأ بحرف، على الأقل {{x}} أحرف، بدون مسافات.',
-      userNameSmallAlphabetOnlyNoSpaceXlengthCaption: 'على الأقل {{x}} أحرف صغيرة فقط، بدون مسافات.',
+      'userNameAlphabeticalNoSpaceXlengthCaption#other': 'على الأقل {count} أحرف أبجدية فقط، بدون مسافات.',
+      'userNameAlphanumericNoSpaceXlengthCaption#other': 'على الأقل {count} أحرف أبجدية رقمية فقط، بدون مسافات.',
+      'userNameStartAlphabetNoSpaceXlengthCaption#other': 'يبدأ بحرف، على الأقل {count} أحرف، بدون مسافات.',
+      'userNameSmallAlphabetOnlyNoSpaceXlengthCaption#other': 'على الأقل {count} أحرف صغيرة فقط، بدون مسافات.',
       passwordCaption: 'كلمة مرور قوية وفريدة بدون مسافات.'
     }
   }

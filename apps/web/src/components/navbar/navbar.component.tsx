@@ -40,10 +40,10 @@ export const WrappedNavBar = () => {
 
       {/** Brand */}
       <NavbarBrand>
-        <div className="bg-primary-500 flex items-center justify-center p-2.5 mr-1 rounded-full aspect-square">
-          <Image src="/nav_logo.png" width={32} height={27} alt="Logo" />
+        <div className="bg-primary-500 flex items-center justify-center p-2 mr-1 rounded-full aspect-square">
+          <Image src="/nav_logo.png" width={28} height={23.6} alt="Logo" />
         </div>
-        <p className="text-3xl font-extralight text-inherit mx-3">{t('common.label.appName')}</p>
+        <p className="text-3xl font-extralight text-inherit mx-2 md:mx-3">{t('common.label.appName')}</p>
       </NavbarBrand>
 
       {/** Content */}
