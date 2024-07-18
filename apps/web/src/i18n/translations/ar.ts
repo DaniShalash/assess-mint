@@ -56,6 +56,21 @@ const translations: TranslationObject = {
       'userNameSmallAlphabetOnlyNoSpaceXlengthCaption#other': 'على الأقل {count} أحرف صغيرة فقط، بدون مسافات.',
       passwordCaption: 'كلمة مرور قوية وفريدة بدون مسافات.'
     }
+  },
+  /** *************************************** */
+
+  /** Dashboard ***************************** */
+  dashboard: {
+    title: {
+      main: 'الرئيسية'
+    },
+    label: {
+      logout: 'تسجيل الخروج',
+      userId: 'معرف المستخدم'
+    },
+    message: {
+      userIdNotFound: 'لم يتم العثور على معرف المستخدم.'
+    }
   }
   /** *************************************** */
 

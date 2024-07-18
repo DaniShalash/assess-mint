@@ -79,7 +79,7 @@ export const loginAction = async (userId: string, password: string, userCountry:
 }
 // ----------------------
 
-export const logoutAction = async (): Promise<void> => {
+export const logoutAction = (): void => {
   cookies().delete(Cookie.JWT);
   cookies().delete(Cookie.USER_ID);
   redirect('/');

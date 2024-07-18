@@ -56,6 +56,21 @@ const translations: TranslationObject = {
       'userNameSmallAlphabetOnlyNoSpaceXlengthCaption#other': 'Minimum {count} petites lettres seulement, sans espaces.',
       passwordCaption: 'Mot de passe fort et unique sans espaces.'
     }
+  },
+  /** *************************************** */
+
+  /** Dashboard ***************************** */
+  dashboard: {
+    title: {
+      main: 'Tableau de bord'
+    },
+    label: {
+      logout: 'Déconnexion',
+      userId: 'Identifiant utilisateur'
+    },
+    message: {
+      userIdNotFound: 'Identifiant utilisateur non trouvé. Cela ne devrait pas arriver :|'
+    }
   }
   /** *************************************** */
 

@@ -1,9 +1,14 @@
 import React from 'react';
+import { cookies } from 'next/headers';
 import type { Metadata } from 'next';
 
 import { NavBar } from '@components';
 
-import { ThemeProvider } from '@providers';
+import { ThemeProvider, UserDetailsProvider } from '@providers';
+
+import { UserDetails } from '@models';
+
+import { Cookie } from '@enums';
 
 import { LanguageCode } from '@i18n/server';
 
@@ -17,7 +22,7 @@ type Props = {
   }
 };
 
-const RootLayout = (props: Props) => {
+const RootLayout = async (props: Props) => {
 
   const { children, params } = props;
   // ---------------------
@@ -28,12 +33,20 @@ const RootLayout = (props: Props) => {
   const dir = locale === LanguageCode.AR ? 'rtl' : 'ltr';
   // ---------------------
 
+  const userId: string | undefined = cookies().get(Cookie.USER_ID)?.value;
+  const userDetails: UserDetails | undefined = userId ? {
+    userId
+  } : undefined;
+  // ---------------------
+
   return (
     <html lang={locale} dir={dir}>
       <body>
         <ThemeProvider>
-          <NavBar locale={locale} />
-          {children}
+          <UserDetailsProvider userDetails={userDetails}>
+            <NavBar locale={locale} />
+            {children}
+          </UserDetailsProvider>
         </ThemeProvider>
       </body>
     </html>

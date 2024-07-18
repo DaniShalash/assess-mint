@@ -56,6 +56,21 @@ const translations = {
       'userNameSmallAlphabetOnlyNoSpaceXlengthCaption#other': 'Minimum {count} small letters only, no spaces.',
       passwordCaption: 'Strong and unique password without spaces.'
     }
+  },
+  /** *************************************** */
+
+  /** Dashboard ***************************** */
+  dashboard: {
+    title: {
+      main: 'Dashboard'
+    },
+    label: {
+      logout: 'Logout',
+      userId: 'User ID'
+    },
+    message: {
+      userIdNotFound: 'User ID not found. This should not happen :|'
+    }
   }
   /** *************************************** */
 

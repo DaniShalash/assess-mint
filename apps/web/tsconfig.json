@@ -24,6 +24,7 @@
       "@enums": ["./src/enums"],
       "@i18n/client": ["./src/i18n/client"],
       "@i18n/server": ["./src/i18n/server"],
+      "@models": ["./src/models"],
       "@providers": ["./src/providers"],
       "@styles/*": ["./src/styles/*"],
       
