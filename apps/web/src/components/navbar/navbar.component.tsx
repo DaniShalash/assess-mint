@@ -11,14 +11,28 @@ import {
   SelectItem
 } from '@nextui-org/react';
 
-export const NavBar = () => {
+import { I18nProviderClient, useI18n, useChangeLocale, useCurrentLocale, LanguageCode } from '@i18n/client';
 
-  const [selectedLanguage, setSelectedLanguage] = React.useState<string>('en');
+type Props = {
+  locale: LanguageCode;
+};
+
+export const NavBar = (props: Props) => (
+  <I18nProviderClient locale={props.locale}>
+    <WrappedNavBar />
+  </I18nProviderClient>
+);
+
+export const WrappedNavBar = () => {
+
+  const t = useI18n();
+  const changeLocale = useChangeLocale();
+  const currentLanguage = useCurrentLocale();
   // ---------------------
 
   const onLanguageChange = useCallback((event: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedLanguage(event.target.value);
-  }, []);
+    changeLocale(event.target.value as LanguageCode);
+  }, [changeLocale]);
   // ---------------------
 
   return (
@@ -26,10 +40,10 @@ export const NavBar = () => {
 
       {/** Brand */}
       <NavbarBrand>
-        <div className="bg-primary-500 px-2 py-1 mr-1 rounded">
-          <Image src="/nav_logo.png" width={41} height={20} alt="Logo" />
+        <div className="bg-primary-500 flex items-center justify-center p-2.5 mr-1 rounded-full aspect-square">
+          <Image src="/nav_logo.png" width={32} height={27} alt="Logo" />
         </div>
-        <p className="text-2xl font-semibold text-inherit">Mint</p>
+        <p className="text-3xl font-extralight text-inherit mx-3">{t('common.label.appName')}</p>
       </NavbarBrand>
 
       {/** Content */}
@@ -42,12 +56,12 @@ export const NavBar = () => {
             variant="flat"
             size="sm"
             selectionMode="single"
-            selectedKeys={[selectedLanguage]}
+            selectedKeys={[currentLanguage]}
             onChange={onLanguageChange}>
 
-            <SelectItem key="en">English</SelectItem>
-            <SelectItem key="ar">Arabic</SelectItem>
-            <SelectItem key="fr">French</SelectItem>
+            <SelectItem key={LanguageCode.EN}>{t('common.language.en')}</SelectItem>
+            <SelectItem key={LanguageCode.AR}>{t('common.language.ar')}</SelectItem>
+            <SelectItem key={LanguageCode.FR}>{t('common.language.fr')}</SelectItem>
 
           </Select>
 

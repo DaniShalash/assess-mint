@@ -23,7 +23,12 @@ import {
   Validity
 } from '@assessmint/core';
 
+import { useI18n } from '@i18n/client';
+
 const Home = () => {
+
+  const t = useI18n();
+  // ---------------------
 
   const [userCountry, setUserCountry] = useState<UserCountry>(UserCountry.UAE);
   const [userIdType, setUserIdType] = useState<UserIdType>(UserIdType.EMAIL);
@@ -42,7 +47,9 @@ const Home = () => {
 
         {/** Header */}
         <CardHeader className="pt-6 md:pt-8 px-6 md:px-8 bg-primary-500">
-          <h1 className="text-white text-3xl md:text-4xl font-bold">Sign In</h1>
+          <h1 className="text-white text-3xl md:text-4xl font-bold">
+            {t('signIn.title.main')}
+          </h1>
         </CardHeader>
         
         {/** Body */}
@@ -52,25 +59,25 @@ const Home = () => {
           <div className="flex flex-row items-center justify-stretch space-x-4 md:space-x-6 mb-4">
 
             {/** Email */}
-            <Select variant="underlined" label="UserID Type">
-              <SelectItem key="em">Email</SelectItem>
-              <SelectItem key="un">Username</SelectItem>
+            <Select variant="underlined" label={t('signIn.label.userIdType')}>
+              <SelectItem key="em">{t('signIn.label.email')}</SelectItem>
+              <SelectItem key="un">{t('signIn.label.userName')}</SelectItem>
             </Select>
 
             {/** User Country */}
-            <Select variant="underlined" label="Country">
-              <SelectItem key="ae">UAE</SelectItem>
-              <SelectItem key="in">India</SelectItem>
-              <SelectItem key="pk">Pakistan</SelectItem>
-              <SelectItem key="fr">France</SelectItem>
+            <Select variant="underlined" label={t('common.label.country')}>
+              <SelectItem key="ae">{t('common.country.uae')}</SelectItem>
+              <SelectItem key="in">{t('common.country.india')}</SelectItem>
+              <SelectItem key="pk">{t('common.country.pakistan')}</SelectItem>
+              <SelectItem key="fr">{t('common.country.france')}</SelectItem>
             </Select>
 
           </div>
 
           {/** User ID */}
           <Input
-            label="UserID"
-            description="Your email address."
+            label={t('signIn.label.email')}
+            description={t('signIn.message.emailCaption')}
             name="userId"
             type="text"
             autoComplete="userID"
@@ -80,8 +87,8 @@ const Home = () => {
 
           {/** Password */}
           <Input
-            label="Password"
-            description="Strong and unique password without spaces."
+            label={t('signIn.label.password')}
+            description={t('signIn.message.passwordCaption')}
             name="password"
             type="password"
             autoComplete="current-password"
@@ -98,12 +105,12 @@ const Home = () => {
 
           {/** SignUp */}
           <Button color="primary">
-            Sign Up
+            {t('signIn.label.signUp')}
           </Button>
 
           {/** Login */}
           <Button variant="light" color="primary">
-            Have an account? Login
+            {t('signIn.label.login')}
           </Button>
 
         </CardFooter>
