@@ -42,7 +42,7 @@ const Dashboard = () => {
       <Card className="w-full max-w-md rounded-lg shadow">
 
         {/** Header */}
-        <CardHeader className="pt-6 md:pt-8 px-6 md:px-8 bg-primary-500">
+        <CardHeader className="pt-6 md:pt-8 px-6 md:px-8 bg-primary">
           <h1 className="text-white text-3xl md:text-4xl font-bold">
             {t('dashboard.title.main')}
           </h1>
@@ -75,7 +75,8 @@ const Dashboard = () => {
           {/** Logout */}
           <Button
             color="secondary"
-            onClick={logout}>
+            onClick={logout}
+            className="text-white">
             {t('dashboard.label.logout')}
           </Button>
 

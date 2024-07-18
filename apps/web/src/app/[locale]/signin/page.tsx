@@ -160,7 +160,7 @@ const SignIn = () => {
       <Card className="w-full max-w-md rounded-lg shadow">
 
         {/** Header */}
-        <CardHeader className="pt-6 md:pt-8 px-6 md:px-8 bg-primary-500">
+        <CardHeader className="pt-6 md:pt-8 px-6 md:px-8 bg-primary">
           <h1 className="text-white text-3xl md:text-4xl font-bold">
             {t('signIn.title.main')}
           </h1>
@@ -229,14 +229,14 @@ const SignIn = () => {
             className="text-justify"
             endContent={
               <button type="button" onClick={onPasswordVisibilityPress}>
-                <span className={`material-symbols-outlined ${passwordValidity === Validity.INVALID ? 'text-red-500' : ''}`}>
+                <span className={`material-symbols-outlined ${passwordValidity === Validity.INVALID ? 'text-danger' : ''}`}>
                   {isPasswordVisible ? 'visibility_off' : 'visibility'}
                 </span>
               </button>
             } />
 
           {/** Error Message */}
-          <p className={`text-xs text-justify text-red-500 transition-all ease-in ${Boolean(signInError) ? 'max-h-8 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <p className={`text-xs text-justify text-danger transition-all ease-in ${Boolean(signInError) ? 'max-h-8 opacity-100' : 'max-h-0 opacity-0'}`}>
             {signInError || '---'}
           </p>
 
@@ -252,7 +252,8 @@ const SignIn = () => {
             color="primary"
             disabled={isLoading}
             isLoading={loadingState === LoadingState.SIGNUP}
-            onClick={signUp}>
+            onClick={signUp}
+            className="text-white">
             {t('signIn.label.signUp')}
           </Button>
 

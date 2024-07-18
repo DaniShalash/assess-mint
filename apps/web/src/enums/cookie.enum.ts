@@ -1,6 +1,7 @@
 export enum Cookie {
   JWT = 'jwt',
-  USER_ID = 'userId'
+  USER_ID = 'userId',
+  USER_COUNTRY = 'userCountry'
 }
 // ----------------------
 // ------------------------------------------------------------------------------------------

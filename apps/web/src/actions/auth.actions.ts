@@ -37,6 +37,7 @@ export const signUpAction = async (userId: string, password: string, userIdType:
     }
     const data = json as SignUpResponse;
     cookies().set(Cookie.USER_ID, userId);
+    cookies().set(Cookie.USER_COUNTRY, userCountry);
     cookies().set(Cookie.JWT, data.jwt, { httpOnly: true });
   } catch {
     return {
@@ -68,6 +69,7 @@ export const loginAction = async (userId: string, password: string, userCountry:
     }
     const data = json as LoginResponse;
     cookies().set(Cookie.USER_ID, userId);
+    cookies().set(Cookie.USER_COUNTRY, userCountry);
     cookies().set(Cookie.JWT, data.jwt, { httpOnly: true });
   } catch {
     return {
@@ -82,6 +84,7 @@ export const loginAction = async (userId: string, password: string, userCountry:
 export const logoutAction = (): void => {
   cookies().delete(Cookie.JWT);
   cookies().delete(Cookie.USER_ID);
+  cookies().delete(Cookie.USER_COUNTRY);
   redirect('/signin');
 };
 // -----------------------------------------------------------------------
