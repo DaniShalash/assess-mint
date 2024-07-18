@@ -35,6 +35,23 @@ const translations: TranslationObject = {
   },
   /** *************************************** */
 
+  /** Notifications ************************* */
+  notifications: {
+    signUp: {
+      title: 'Salut!',
+      body: 'Félicitations! Vous avez créé un compte avec succès avec AssessMint'
+    },
+    login: {
+      title: 'Bienvenue!',
+      body: 'Vous vous êtes connecté avec succès à AssessMint. Heureux de vous voir arriver jusqu\'ici :)'
+    },
+    logout: {
+      title: 'Au revoir!',
+      body: 'Vous vous êtes déconnecté avec succès d\'AssessMint. Espérons vous revoir bientôt'
+    }
+  },
+  /** *************************************** */
+
   /** SignIn ******************************** */
   signIn: {
     title: {

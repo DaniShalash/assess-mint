@@ -15,6 +15,8 @@ import { useUserDetails } from '@providers';
 
 import { UserDetails } from '@models';
 
+import { NotificationsService } from '@services';
+
 import { logoutAction } from '@actions/auth.actions';
 
 import { useI18n } from '@i18n/client';
@@ -29,7 +31,8 @@ const Dashboard = () => {
 
   const logout = useCallback(() => {
     logoutAction();
-  }, []);
+    NotificationsService.post(t('notifications.logout.title'), t('notifications.logout.body'));
+  }, [t]);
   // ---------------------
 
   return (

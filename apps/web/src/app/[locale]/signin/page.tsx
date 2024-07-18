@@ -34,6 +34,8 @@ import {
 
 import { APIErrorDetails, APIErrorCode } from '@assessmint/api';
 
+import { NotificationsService } from '@services';
+
 import { loginAction, signUpAction } from '@actions/auth.actions';
 
 import { useI18n } from '@i18n/client';
@@ -118,8 +120,12 @@ const SignIn = () => {
     setLoadingState(LoadingState.SIGNUP);
     setSignInError(undefined);
     try {
+      await NotificationsService.requestPermission();
       const errorResult: APIErrorDetails | undefined = await signUpAction(userId, password, userIdType, userCountry);
-      if (!errorResult) return;
+      if (!errorResult) {
+        NotificationsService.post(t('notifications.signUp.title'), t('notifications.signUp.body'));
+        return
+      };
       setSignInError(messageForError(t, errorResult.code));
     } catch (error: unknown) {
       setSignInError(t('error.message.generic'));
@@ -133,8 +139,12 @@ const SignIn = () => {
     setLoadingState(LoadingState.LOGIN);
     setSignInError(undefined);
     try {
+      await NotificationsService.requestPermission();
       const errorResult: APIErrorDetails | undefined = await loginAction(userId, password, userCountry);
-      if (!errorResult) return;
+      if (!errorResult) {
+        NotificationsService.post(t('notifications.login.title'), t('notifications.login.body'));
+        return
+      };
       setSignInError(messageForError(t, errorResult.code));
     } catch (error: unknown) {
       setSignInError(t('error.message.generic'));
@@ -200,7 +210,8 @@ const SignIn = () => {
             required={true}
             value={userId}
             onChange={onUserIdChange}
-            disabled={isLoading} />
+            disabled={isLoading}
+            className="text-justify" />
 
           {/** Password */}
           <Input
@@ -215,6 +226,7 @@ const SignIn = () => {
             value={password}
             onChange={onPasswordChange}
             disabled={isLoading}
+            className="text-justify"
             endContent={
               <button type="button" onClick={onPasswordVisibilityPress}>
                 <span className={`material-symbols-outlined ${passwordValidity === Validity.INVALID ? 'text-red-500' : ''}`}>
@@ -224,7 +236,7 @@ const SignIn = () => {
             } />
 
           {/** Error Message */}
-          <p className={`text-xs text-red-500 transition-all ease-in ${Boolean(signInError) ? 'max-h-8 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <p className={`text-xs text-justify text-red-500 transition-all ease-in ${Boolean(signInError) ? 'max-h-8 opacity-100' : 'max-h-0 opacity-0'}`}>
             {signInError || '---'}
           </p>
 

@@ -26,6 +26,7 @@
       "@i18n/server": ["./src/i18n/server"],
       "@models": ["./src/models"],
       "@providers": ["./src/providers"],
+      "@services": ["./src/services"],
       "@styles/*": ["./src/styles/*"],
       
     }
