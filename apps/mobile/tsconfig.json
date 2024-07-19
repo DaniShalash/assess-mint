@@ -4,6 +4,7 @@
     "baseUrl": "./src",
     "paths": {
       "@components/basic": ["components/basic"],
+      "@config": ["config"],
       "@i18n": ["i18n"],
       "@navigation": ["navigation"],
       "@providers": ["providers"],

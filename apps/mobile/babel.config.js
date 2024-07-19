@@ -6,6 +6,7 @@ module.exports = {
       root: ['./src'],
       alias: {
         '@components/basic': './src/components/basic',
+        '@config': './src/config',
         '@i18n': './src/i18n',
         '@navigation': './src/navigation',
         '@providers': './src/providers',

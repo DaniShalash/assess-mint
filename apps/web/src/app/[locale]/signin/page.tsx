@@ -206,7 +206,7 @@ const SignIn = () => {
             errorMessage={userIdCaption}
             name="userId"
             type="text"
-            autoComplete="userID"
+            autoComplete={userIdType === UserIdType.EMAIL ? 'email' : 'username'}
             required={true}
             value={userId}
             onChange={onUserIdChange}

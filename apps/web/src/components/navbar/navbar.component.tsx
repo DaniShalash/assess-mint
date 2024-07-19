@@ -41,7 +41,7 @@ export const WrappedNavBar = () => {
       {/** Brand */}
       <NavbarBrand>
         <div className="bg-primary flex items-center justify-center p-2 mr-1 rounded-full aspect-square">
-          <Image src="/nav_logo.png" width={28} height={23.6} alt="Logo" />
+          <Image src="/nav_logo.png" width={28} height={24} alt="Logo" />
         </div>
         <p className="text-3xl font-extralight text-inherit mx-2 md:mx-3">{t('common.label.appName')}</p>
       </NavbarBrand>

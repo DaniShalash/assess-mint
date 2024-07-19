@@ -11,6 +11,8 @@ import {
 
 import { i18n } from '@i18n';
 
+import { AppConfig } from '@config';
+
 /**
  * @ReviewTeam
  * Obviously, this service belongs to the API package, but at the time of
@@ -21,7 +23,6 @@ import { i18n } from '@i18n';
 class Authentication {
 
   private readonly tag: string = 'AuthService';
-  private readonly baseUrl: string = 'http://localhost:3000/';
 
   public constructor() {}
 
@@ -39,7 +40,7 @@ class Authentication {
   // Private Methods -------------------------------------------------------
   private async post<T>(path: string, data: Record<string, any>): Promise<T> {
     try {
-      const response = await fetch(`${this.baseUrl}/${path}`, {
+      const response = await fetch(`${AppConfig.api.baseUrl}/${path}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
