@@ -84,6 +84,9 @@ Extra features:
 >The whole web app is made in one day, and I ran completely out of time to create tests.\
 >**In real projects I don't commit code without tests, but here, I had to choose, either full implementation without tests, or half implementation with test, I chose the former.**
 
+>**Note 5**:\
+>You can search for "@ReviewTeam" in this repo. I have left few notes here and there.
+
 <br/>
 
 ## 2. Project Architecture
@@ -95,7 +98,7 @@ Workspaces are divided into 2 main categories, apps, and packages that are depen
   * 🌍 **Web**: NextJS web app.
 * Packages:
   * 🛠️ **Core**: Main dependency of all the workspaces. Includes the business logic / validation / rules and main types and classes of the business, including a unified JS Error.
-  * 📡 **API**: Contains the API interfaces, types and all the DTOs to communicate with the backend. It's not 100% optimal in this project due to time and scope limitiations. (Please see Note .5)
+  * 📡 **API**: Contains the API interfaces, types and all the DTOs to communicate with the backend. It's not 100% optimal in this project due to time and scope limitiations. (Please see Note .6)
   * 🎨 **Theme**: Contains the theme models, types, and definitions.
 
 <br/>
@@ -104,11 +107,11 @@ Workspaces are divided into 2 main categories, apps, and packages that are depen
 
 <br/>
 
->**Note 5**:\
+>**Note 6**:\
 >The API package is not really what I want it to be. It's supposed to contain the implementation of calling the API server, rather than leaving it to a service in each app.
 >Couldn't find the time to build a server, so I ended up with this.
 
->**Note 6**:\
+>**Note 7**:\
 >I wanted to create another package for ESLint rules, rather than the inheritance-based model currently implemented, but yet again, no time to do so.
 
 <br/>
